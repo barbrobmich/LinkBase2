@@ -14,6 +14,7 @@
 		E5380E521E99975A0004F577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5380E501E99975A0004F577 /* LaunchScreen.storyboard */; };
 		E5380E5D1E99975A0004F577 /* LinkBase2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5380E5C1E99975A0004F577 /* LinkBase2Tests.swift */; };
 		E5380E681E99975A0004F577 /* LinkBase2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5380E671E99975A0004F577 /* LinkBase2UITests.swift */; };
+		E5380EB01E99C11C0004F577 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5380EAF1E99C11C0004F577 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E5380E631E99975A0004F577 /* LinkBase2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkBase2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5380E671E99975A0004F577 /* LinkBase2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkBase2UITests.swift; sourceTree = "<group>"; };
 		E5380E691E99975A0004F577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5380EAF1E99C11C0004F577 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				E5380E4E1E99975A0004F577 /* Assets.xcassets */,
 				E5380E501E99975A0004F577 /* LaunchScreen.storyboard */,
 				E5380E531E99975A0004F577 /* Info.plist */,
+				E5380EAF1E99C11C0004F577 /* HomeViewController.swift */,
 			);
 			path = LinkBase2;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				E5380E4A1E99975A0004F577 /* ViewController.swift in Sources */,
 				E5380E481E99975A0004F577 /* AppDelegate.swift in Sources */,
+				E5380EB01E99C11C0004F577 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +520,7 @@
 				E5380E6E1E99975A0004F577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5380E6F1E99975A0004F577 /* Build configuration list for PBXNativeTarget "LinkBase2Tests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +529,7 @@
 				E5380E711E99975A0004F577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5380E721E99975A0004F577 /* Build configuration list for PBXNativeTarget "LinkBase2UITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +538,7 @@
 				E5380E741E99975A0004F577 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
