@@ -25,6 +25,9 @@
 		485B5DF81E9B1D270004F768 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DF71E9B1D270004F768 /* NewItemViewController.swift */; };
 		485B5DFA1E9B1D3A0004F768 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DF91E9B1D3A0004F768 /* SignUpViewController.swift */; };
 		485B5DFC1E9B1D470004F768 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DFB1E9B1D470004F768 /* UtilityFunctions.swift */; };
+		A5262BFF1E9C348C00C6AC08 /* ChallengeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5262BFE1E9C348C00C6AC08 /* ChallengeListViewController.swift */; };
+		A5262C021E9C387B00C6AC08 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5262C011E9C387B00C6AC08 /* Company.swift */; };
+		A53164E81E9C3B66007C6D3D /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53164E71E9C3B66007C6D3D /* Question.swift */; };
 		A8C112BF85BF6BFE27D1F870 /* Pods_LinkBase2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90E0181764D884F39E78D61 /* Pods_LinkBase2.framework */; };
 		E5380E481E99975A0004F577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5380E471E99975A0004F577 /* AppDelegate.swift */; };
 		E5380E4D1E99975A0004F577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5380E4B1E99975A0004F577 /* Main.storyboard */; };
@@ -72,6 +75,9 @@
 		485B5DF91E9B1D3A0004F768 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		485B5DFB1E9B1D470004F768 /* UtilityFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		86DB847BAD24964ABACF6B46 /* Pods-LinkBase2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkBase2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LinkBase2/Pods-LinkBase2.debug.xcconfig"; sourceTree = "<group>"; };
+		A5262BFE1E9C348C00C6AC08 /* ChallengeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeListViewController.swift; sourceTree = "<group>"; };
+		A5262C011E9C387B00C6AC08 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		A53164E71E9C3B66007C6D3D /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		C90E0181764D884F39E78D61 /* Pods_LinkBase2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LinkBase2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5380E441E99975A0004F577 /* LinkBase2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkBase2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5380E471E99975A0004F577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +164,8 @@
 				485B5DE21E9B16C00004F768 /* Item.swift */,
 				485B5DFB1E9B1D470004F768 /* UtilityFunctions.swift */,
 				485B5DE41E9B16E00004F768 /* Protocols.swift */,
+				A5262C011E9C387B00C6AC08 /* Company.swift */,
+				A53164E71E9C3B66007C6D3D /* Question.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 		A5262BFD1E9C326300C6AC08 /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				A5262BFE1E9C348C00C6AC08 /* ChallengeListViewController.swift */,
 			);
 			name = Challenge;
 			sourceTree = "<group>";
@@ -463,12 +472,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				485B5DF21E9B1D0C0004F768 /* ItemCell.swift in Sources */,
+				A53164E81E9C3B66007C6D3D /* Question.swift in Sources */,
 				E5380E481E99975A0004F577 /* AppDelegate.swift in Sources */,
 				485B5DEA1E9B1A1B0004F768 /* HudView.swift in Sources */,
 				485B5DF01E9B1CF60004F768 /* ChooseLangViewController.swift in Sources */,
+				A5262BFF1E9C348C00C6AC08 /* ChallengeListViewController.swift in Sources */,
 				485B5DF41E9B1D120004F768 /* ItemCollectionCell.swift in Sources */,
 				485B5DE31E9B16C00004F768 /* Item.swift in Sources */,
 				485B5DFA1E9B1D3A0004F768 /* SignUpViewController.swift in Sources */,
+				A5262C021E9C387B00C6AC08 /* Company.swift in Sources */,
 				E5380EB01E99C11C0004F577 /* HomeViewController.swift in Sources */,
 				485B5DF81E9B1D270004F768 /* NewItemViewController.swift in Sources */,
 				485B5DE51E9B16E10004F768 /* Protocols.swift in Sources */,
