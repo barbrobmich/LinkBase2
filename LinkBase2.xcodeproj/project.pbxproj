@@ -15,7 +15,6 @@
 		485B5DDB1E9B01F30004F768 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 485B5DD91E9B01F30004F768 /* Home.storyboard */; };
 		A8C112BF85BF6BFE27D1F870 /* Pods_LinkBase2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90E0181764D884F39E78D61 /* Pods_LinkBase2.framework */; };
 		E5380E481E99975A0004F577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5380E471E99975A0004F577 /* AppDelegate.swift */; };
-		E5380E4A1E99975A0004F577 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5380E491E99975A0004F577 /* ViewController.swift */; };
 		E5380E4D1E99975A0004F577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5380E4B1E99975A0004F577 /* Main.storyboard */; };
 		E5380E4F1E99975A0004F577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5380E4E1E99975A0004F577 /* Assets.xcassets */; };
 		E5380E521E99975A0004F577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5380E501E99975A0004F577 /* LaunchScreen.storyboard */; };
@@ -52,7 +51,6 @@
 		C90E0181764D884F39E78D61 /* Pods_LinkBase2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LinkBase2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5380E441E99975A0004F577 /* LinkBase2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkBase2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5380E471E99975A0004F577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5380E491E99975A0004F577 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5380E4C1E99975A0004F577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5380E4E1E99975A0004F577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5380E511E99975A0004F577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,6 +100,42 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		485B5DDC1E9B05590004F768 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				485B5DCD1E9B012A0004F768 /* Signup.storyboard */,
+				485B5DCF1E9B01630004F768 /* Affiliations.storyboard */,
+				E5380E4B1E99975A0004F577 /* Main.storyboard */,
+				485B5DD91E9B01F30004F768 /* Home.storyboard */,
+				485B5DD71E9B01E10004F768 /* Challenge.storyboard */,
+				485B5DD41E9B01960004F768 /* Company.storyboard */,
+				485B5DD21E9B017E0004F768 /* Profile.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
+		485B5DDD1E9B05A30004F768 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5380EAF1E99C11C0004F577 /* HomeViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		485B5DDE1E9B05AD0004F768 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		485B5DDF1E9B05B50004F768 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		BD5699B833B7909B3443D9C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,19 +169,14 @@
 		E5380E461E99975A0004F577 /* LinkBase2 */ = {
 			isa = PBXGroup;
 			children = (
+				485B5DDF1E9B05B50004F768 /* Views */,
+				485B5DDE1E9B05AD0004F768 /* Model */,
+				485B5DDD1E9B05A30004F768 /* Controllers */,
+				485B5DDC1E9B05590004F768 /* StoryBoard */,
 				E5380E471E99975A0004F577 /* AppDelegate.swift */,
-				E5380E491E99975A0004F577 /* ViewController.swift */,
-				E5380E4B1E99975A0004F577 /* Main.storyboard */,
-				485B5DD91E9B01F30004F768 /* Home.storyboard */,
-				485B5DD71E9B01E10004F768 /* Challenge.storyboard */,
-				485B5DD41E9B01960004F768 /* Company.storyboard */,
-				485B5DD21E9B017E0004F768 /* Profile.storyboard */,
-				485B5DCF1E9B01630004F768 /* Affiliations.storyboard */,
-				485B5DCD1E9B012A0004F768 /* Signup.storyboard */,
 				E5380E4E1E99975A0004F577 /* Assets.xcassets */,
 				E5380E501E99975A0004F577 /* LaunchScreen.storyboard */,
 				E5380E531E99975A0004F577 /* Info.plist */,
-				E5380EAF1E99C11C0004F577 /* HomeViewController.swift */,
 			);
 			path = LinkBase2;
 			sourceTree = "<group>";
@@ -241,7 +270,7 @@
 				TargetAttributes = {
 					E5380E431E99975A0004F577 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = F7WL3Y7459;
+						DevelopmentTeam = G6A6KTQ9M6;
 						ProvisioningStyle = Automatic;
 					};
 					E5380E571E99975A0004F577 = {
@@ -364,7 +393,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5380E4A1E99975A0004F577 /* ViewController.swift in Sources */,
 				E5380E481E99975A0004F577 /* AppDelegate.swift in Sources */,
 				E5380EB01E99C11C0004F577 /* HomeViewController.swift in Sources */,
 			);
@@ -545,10 +573,11 @@
 			baseConfigurationReference = 86DB847BAD24964ABACF6B46 /* Pods-LinkBase2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = F7WL3Y7459;
+				DEVELOPMENT_TEAM = G6A6KTQ9M6;
 				INFOPLIST_FILE = LinkBase2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = barbara.LinkBase2;
+				PRODUCT_BUNDLE_IDENTIFIER = codewithtea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -559,10 +588,11 @@
 			baseConfigurationReference = FB898D4DCD1DA22CDF0E7509 /* Pods-LinkBase2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = F7WL3Y7459;
+				DEVELOPMENT_TEAM = G6A6KTQ9M6;
 				INFOPLIST_FILE = LinkBase2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = barbara.LinkBase2;
+				PRODUCT_BUNDLE_IDENTIFIER = codewithtea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

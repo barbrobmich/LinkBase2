@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Parse.initialize(
+            with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) in
+                configuration.applicationId = "linkbase"
+                configuration.clientKey = "fasfsaf0-isa9f898f09809f80sa809fsd9a"
+                configuration.server = "https://barbrobmich.herokuapp.com/parse"
+            })
+        )
+        
         return true
     }
 
