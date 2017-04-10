@@ -35,15 +35,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Login" storyboardName="Signup" referencedIdentifier="Login" id="b3x-WS-Aue" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKF-ED-Rvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2911" y="-145"/>
-        </scene>
-        <!--AddAffiliations-->
-        <scene sceneID="eyb-Fo-aeA">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AddAffiliations" storyboardName="Affiliations" referencedIdentifier="AddAffiliations" id="SvJ-4N-s1B" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VZI-mr-RuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2164" y="-145"/>
+            <point key="canvasLocation" x="-2564" y="-168"/>
         </scene>
         <!--Profile-->
         <scene sceneID="4x3-Rx-VbE">
