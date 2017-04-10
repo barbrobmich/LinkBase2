@@ -48,9 +48,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Challenge" id="1dh-Fx-UD5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="2g9-dg-dhG" kind="show" id="JN6-QR-cR9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZF-Xo-i1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
