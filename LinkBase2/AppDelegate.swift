@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        Parse.initialize(
+            with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) in
+                configuration.applicationId = "linkbase"
+                configuration.clientKey = "fasfsaf0-isa9f898f09809f80sa809fsd9a"
+                configuration.server = "https://barbrobmich.herokuapp.com/parse"
+            })
+        )
+        
+        if PFUser.current() != nil {
+            
+            print("There is a current user with username \(PFUser.current()!.username!)")
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+        } else {
+            print("There is no current user")
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil) 
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+        }
+
         return true
     }
 

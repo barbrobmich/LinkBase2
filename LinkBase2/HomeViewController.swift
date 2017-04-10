@@ -15,7 +15,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        styleBackgroundImage()
+        addBlurToImage(image: backgroundImageView, type: .light)
+
 
         // Do any additional setup after loading the view.
     }
@@ -25,18 +26,6 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func styleBackgroundImage() {
-        
-        // Add blur effect to background image
-        let blur = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let blurEffectView = UIVisualEffectView(effect: blur)
-        blurEffectView.frame = backgroundImageView.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        backgroundImageView.addSubview(blurEffectView)
-        
-    }
-    
-
     /*
     // MARK: - Navigation
 
