@@ -141,6 +141,7 @@
 		485B5DDD1E9B05A30004F768 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A5262BFD1E9C326300C6AC08 /* Challenge */,
 				485B5DE81E9B17CC0004F768 /* Login */,
 				E5380EAF1E99C11C0004F577 /* HomeViewController.swift */,
 				485B5DF71E9B1D270004F768 /* NewItemViewController.swift */,
@@ -194,6 +195,13 @@
 				485B5DEB1E9B1A280004F768 /* AddItemViewController.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		A5262BFD1E9C326300C6AC08 /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Challenge;
 			sourceTree = "<group>";
 		};
 		BD5699B833B7909B3443D9C0 /* Frameworks */ = {
@@ -330,7 +338,7 @@
 				TargetAttributes = {
 					E5380E431E99975A0004F577 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = G6A6KTQ9M6;
+						DevelopmentTeam = W3K36XA3XC;
 						ProvisioningStyle = Automatic;
 					};
 					E5380E571E99975A0004F577 = {
@@ -637,7 +645,7 @@
 			baseConfigurationReference = 86DB847BAD24964ABACF6B46 /* Pods-LinkBase2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G6A6KTQ9M6;
+				DEVELOPMENT_TEAM = W3K36XA3XC;
 				INFOPLIST_FILE = LinkBase2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -652,7 +660,7 @@
 			baseConfigurationReference = FB898D4DCD1DA22CDF0E7509 /* Pods-LinkBase2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G6A6KTQ9M6;
+				DEVELOPMENT_TEAM = W3K36XA3XC;
 				INFOPLIST_FILE = LinkBase2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
