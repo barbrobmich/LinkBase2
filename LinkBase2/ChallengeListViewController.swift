@@ -10,13 +10,21 @@ import UIKit
 
 class ChallengeListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+	var question: Question?
+	var facebook: Company?
 	var companies: [Company] = []
 	
 	@IBOutlet weak var tableView: UITableView!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+		question = Question(question: "What is 1 + 1?", choices: ["1", "2", "3", "4"], correctAnswerIndex: 1)
+		facebook = Company(name: "Facebook", logo: UIImage(named: "facebook")!, questions: [question!, question!, question!])
+		companies = [facebook!, facebook!, facebook!]
+		
+		tableView.delegate = self
+		tableView.dataSource = self
+		tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +33,12 @@ class ChallengeListViewController: UIViewController, UITableViewDelegate, UITabl
     }
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "company", for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: "company", for: indexPath) as! ChallengeTableViewCell
+		let company  = companies[indexPath.row]
+		print("company \(company)")
+		cell.logoImageView.image = company.logo
+		cell.nameLabel.text = company.name
+		cell.questionCountLabel.text = "\(company.questions.count) questions"
 		
 		return cell
 	}
@@ -34,14 +47,13 @@ class ChallengeListViewController: UIViewController, UITableViewDelegate, UITabl
 		return companies.count
 	}
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+		let cell = sender as! UITableViewCell
+		let indexPath = tableView.indexPath(for: cell)
+		let challengeDetailViewController = segue.destination as! ChallengeDetailViewController
+		challengeDetailViewController.company = companies[indexPath!.row]
+	}
 }

@@ -10,12 +10,12 @@ import UIKit
 
 class Company: NSObject {
 	var name: String?
-	var image: UIImage?
+	var logo: UIImage?
 	var questions: [Question] = []
 	
-	init(name: String, image: UIImage, questions: [Question]) {
+	init(name: String, logo: UIImage, questions: [Question]) {
 		self.name = name
-		self.image = image
+		self.logo = logo
 		self.questions = questions
 	}
 }
