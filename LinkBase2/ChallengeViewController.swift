@@ -35,7 +35,7 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
     override func viewDidLoad() {
         super.viewDidLoad()
 		questions = (company?.questions)!
-		renderQuestion()
+		renderNextQuestion()
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,11 +65,11 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 			self.button3.alpha = 0
 			self.button4.alpha = 0
 		}) { (true) in
-			self.renderQuestion()
+			self.renderNextQuestion()
 		}
 	}
 	
-	func renderQuestion() {
+	func renderNextQuestion() {
 		UIView.animate(withDuration: 0.2, animations: {
 			self.questionIndex += 1
 			self.currentQuestion = self.questions[self.questionIndex]
@@ -139,6 +139,8 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 		
 		audioRecorder?.stop()
 		audioRecorder = nil
+		
+		playAudio()
 	}
 	
 	func getDocumentsDirectory() -> URL {
@@ -147,6 +149,25 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 		let documentsDirectory = paths[0]
 		print(paths[0])
 		return documentsDirectory
+	}
+	
+	func playAudio() {
+		do {
+			print("attempting to play audio")
+			if audioFileName != nil {
+				print("play audio")
+//				try audioPlayer = AVAudioPlayer(contentsOf: (audioFileName)!)
+				let item = AVPlayerItem(url: audioFileName!)
+				NotificationCenter.default.addObserver(self, selector: #selector(self.renderNextQuestion), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: item)
+				let audioPlayer = AVPlayer(playerItem: item)
+
+//				audioPlayer.delegate = self
+//				audioPlayer.prepareToPlay()
+				audioPlayer.play()
+			}
+		} catch let error as NSError {
+			print("AudioPlayer error: \(error.localizedDescription)")
+		}
 	}
 	
 	@IBAction func select1(_ sender: Any) {
