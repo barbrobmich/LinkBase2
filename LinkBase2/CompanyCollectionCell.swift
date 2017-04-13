@@ -12,12 +12,10 @@ class CompanyCollectionCell: UICollectionViewCell {
     
     
     @IBOutlet weak var compNamLb: UILabel!
-    @IBOutlet weak var numOfEmployLb: UILabel!
     
     var company: Company!{
         didSet{
             self.compNamLb.text = company.name!
-            self.numOfEmployLb.text = "\(company.numEmployees)"
         }
     }
 }

@@ -58,7 +58,7 @@ extension CompanyViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // First section is hello blurb
         if section == 0{
-            return 1
+            return 0
             // Second section is Company Data
         }else if section == 1{
             return self.companies.count
