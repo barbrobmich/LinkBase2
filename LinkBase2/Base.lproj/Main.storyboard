@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gNc-IY-XIs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--TabBarController-->
         <scene sceneID="g5D-fG-Naz">
             <objects>
                 <tabBarController storyboardIdentifier="TabBarController" title="TabBarController" id="gNc-IY-XIs" sceneMemberID="viewController">
@@ -21,7 +21,7 @@
                     <connections>
                         <segue destination="gVT-Ca-LnZ" kind="relationship" relationship="viewControllers" id="6TY-eA-nJV"/>
                         <segue destination="i4R-sd-vEt" kind="relationship" relationship="viewControllers" id="Spa-RR-nC7"/>
-                        <segue destination="LI0-6r-KLH" kind="relationship" relationship="viewControllers" id="RNs-c1-xku"/>
+                        <segue destination="gfH-4w-eGz" kind="relationship" relationship="viewControllers" id="RNs-c1-xku"/>
                         <segue destination="8gB-B0-pmr" kind="relationship" relationship="viewControllers" id="3tx-xp-Gh7"/>
                     </connections>
                 </tabBarController>
@@ -51,11 +51,11 @@
         <scene sceneID="va3-t7-b5N">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Company" storyboardName="Company" referencedIdentifier="Company" id="LI0-6r-KLH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="YyI-v7-ite"/>
+                    <navigationItem key="navigationItem" id="Hqf-fk-2R3"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5q9-ac-zCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98.400000000000006" y="466.41679160419795"/>
+            <point key="canvasLocation" x="930.39999999999998" y="412.89355322338832"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="UG1-yN-l1n">
@@ -76,6 +76,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KzM-CD-i1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-439" y="-948"/>
+        </scene>
+        <!--Company-->
+        <scene sceneID="EoY-QI-3HG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gfH-4w-eGz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Company" id="YyI-v7-ite"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rru-pU-lft">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LI0-6r-KLH" kind="relationship" relationship="rootViewController" id="z7q-6D-mXh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sK1-tS-F1H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10.4" y="412.44377811094455"/>
         </scene>
     </scenes>
 </document>

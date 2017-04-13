@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -8,13 +12,13 @@
         <!--Company-->
         <scene sceneID="dJ6-HO-xYB">
             <objects>
-                <viewController storyboardIdentifier="Company" id="IPl-AZ-c0p" customClass="HomeCompanyViewController" customModule="LinkBase2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Company" id="IPl-AZ-c0p" customClass="CompanyViewController" customModule="LinkBase2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1f8-wd-voo"/>
                         <viewControllerLayoutGuide type="bottom" id="MTJ-Um-qlz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="f2T-wx-QYS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OqP-QH-biM">
@@ -69,8 +73,8 @@
                                             </subviews>
                                         </view>
                                         <connections>
-                                            <outlet property="companyName" destination="30i-VK-Deh" id="1v6-di-M8X"/>
-                                            <outlet property="numOfEmployee" destination="Ap9-wa-3J3" id="5eD-a6-d0r"/>
+                                            <outlet property="compNamLb" destination="30i-VK-Deh" id="Yu2-2l-rsy"/>
+                                            <outlet property="numOfEmployLb" destination="Ap9-wa-3J3" id="zqw-l2-UBi"/>
                                             <segue destination="6dh-8W-Plz" kind="show" id="sQz-Eo-zZc">
                                                 <nil key="action"/>
                                             </segue>
@@ -102,9 +106,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
                     <connections>
                         <outlet property="CompanyCollection" destination="OqP-QH-biM" id="nsa-oo-aRF"/>
+                        <outlet property="companyCollection" destination="OqP-QH-biM" id="vI3-AB-jCD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6m-ts-PDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,8 +152,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="companyName" destination="ftN-ga-FYc" id="4vU-Vl-vww"/>
-                        <outlet property="numEmployees" destination="qr3-9d-pqU" id="Vb0-gB-bEh"/>
+                        <outlet property="compName" destination="ftN-ga-FYc" id="1sh-20-EP2"/>
+                        <outlet property="numEmployee" destination="ebJ-yu-vz8" id="ehe-Vz-eGQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5sq-ft-2zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
