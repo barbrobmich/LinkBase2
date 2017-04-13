@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) in
                 configuration.applicationId = "linkbase"
@@ -25,7 +25,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://barbrobmich.herokuapp.com/parse"
             })
         )
-        
+
+
+        if PFUser.current() == nil {
+            print("There is no current user")
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Signup", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+        //Check if user exists and logged in
+        else if let user = PFUser.current() {
+                if user.isAuthenticated {
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                    self.window?.rootViewController = initialViewController
+                    self.window?.makeKeyAndVisible()
+                }
+            }
+
+        // MARK: - NOTIFICATIONS FOR USER LOGIN, SIGN UP AND LOGOUT
+
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "UserDidLogIn"), object: nil, queue: OperationQueue.main, using: { (NSNotification) -> Void in
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+
+        })
+
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "UserDidSignUp"), object: nil, queue: OperationQueue.main, using: { (NSNotification) -> Void in
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Signup", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "AddItem")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+
+        })
+
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "UserDidLogOut"), object: nil, queue: OperationQueue.main, using: { (NSNotification) -> Void in
+
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Signup", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        })
+
+
         return true
     }
 

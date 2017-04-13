@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
-    
+
+    @IBOutlet weak var homeChallengeCollectionView: UICollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         styleBackgroundImage()
 
         // Do any additional setup after loading the view.
@@ -24,18 +27,24 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func styleBackgroundImage() {
-        
+
         // Add blur effect to background image
         let blur = UIBlurEffect(style: UIBlurEffectStyle.light)
         let blurEffectView = UIVisualEffectView(effect: blur)
         blurEffectView.frame = backgroundImageView.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         backgroundImageView.addSubview(blurEffectView)
-        
+
     }
-    
+
+    @IBAction func onLogout(_ sender: UIButton) {
+        print("Logging Out")
+        PFUser.logOut()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserDidLogOut"), object: nil)
+    }
+
 
     /*
     // MARK: - Navigation
@@ -48,3 +57,27 @@ class HomeViewController: UIViewController {
     */
 
 }
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+        return 10
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeChallengeCollectionCell", for: indexPath) as! HomeChallengeCollectionCell
+
+        cell.challengeNameLabel.text = String(indexPath.item)
+
+        return cell
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+    }
+}
+
