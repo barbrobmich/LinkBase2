@@ -17,13 +17,8 @@ class CompanyCollectionCell: UICollectionViewCell {
     var company: Company!{
         didSet{
             self.compNamLb.text = company.name!
+            self.compImg.image = company.logo!
         }
-    }
-    
-    
-
-    @IBAction func favorite(_ sender: Any) {
-        
     }
     
     

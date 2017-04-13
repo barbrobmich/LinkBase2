@@ -30,9 +30,11 @@ class Company: NSObject {
 		self.questions = questions
 	}
     
-    init(name: String, numEmployees: Int){
+    init(name: String, numEmployees: Int, logo: UIImage){
         self.name = name
         self.numEmployees = numEmployees
+        self.logo = logo
+        
     }
     
     init(object: PFObject){

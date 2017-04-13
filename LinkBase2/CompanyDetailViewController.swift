@@ -30,6 +30,7 @@ class CompanyDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.compName.text = self.company.name!
+        self.compImg.image = self.company.logo!
     }
 
 
