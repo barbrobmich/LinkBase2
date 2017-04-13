@@ -21,9 +21,9 @@ class CompanyViewController: UIViewController {
         companyCollection.dataSource = self
         
         // Make temp Company data
-        let tempCompany = [Company(name: "Uber", numEmployees: 100),
-                           Company(name: "Coupa", numEmployees: 500),
-                           Company(name: "Google", numEmployees: 9001)]
+        let tempCompany = [Company(name: "Uber", numEmployees: 100, logo: UIImage(named: "uber")!),
+                           Company(name: "Coupa", numEmployees: 500, logo: UIImage(named: "coupa")!),
+                           Company(name: "Google", numEmployees: 9001, logo: UIImage(named: "google")!)]
         self.companies = tempCompany
     }
 
@@ -58,7 +58,7 @@ extension CompanyViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // First section is hello blurb
         if section == 0{
-            return 1
+            return 0
             // Second section is Company Data
         }else if section == 1{
             return self.companies.count
