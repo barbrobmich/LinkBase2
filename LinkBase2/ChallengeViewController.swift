@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ChallengeViewController: UIViewController {
+class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
 	var questionIndex: Int = -1
 	var questions: [Question] = []
 	var company: Company?
 	var currentQuestion: Question?
 	var limitTimer: Timer?
+	var recording = false
+	
+	var recordingSession: AVAudioSession?
+	var audioRecorder: AVAudioRecorder?
+	var audioPlayer: AVAudioPlayer?
+	var audioFileName: URL?
 	
 	@IBOutlet weak var questionNumberLabel: UILabel!
 	@IBOutlet weak var questionTextLabel: UILabel!
@@ -103,8 +110,43 @@ class ChallengeViewController: UIViewController {
 		}
 	}
 	
+	func startRecording() {
+		self.limitTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countDown), userInfo: nil, repeats: true)
+		self.button3.setTitle("Stop Recording", for: UIControlState.normal)
+		
+		audioFileName = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+		
+		let settings = [
+			AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+			AVSampleRateKey: 12000,
+			AVNumberOfChannelsKey: 1,
+			AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+		]
+		do {
+			recording = true;
+			audioRecorder = try AVAudioRecorder(url: audioFileName!, settings: settings)
+			audioRecorder?.delegate = self
+			audioRecorder?.record()
+		} catch {
+			print("audio error")
+		}
+	}
+	
 	func stopRecording() {
+		recording = false
 		self.limitTimer?.invalidate()
+		self.button3.setTitle("Start Recording", for: UIControlState.normal)
+		
+		audioRecorder?.stop()
+		audioRecorder = nil
+	}
+	
+	func getDocumentsDirectory() -> URL {
+		
+		let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+		let documentsDirectory = paths[0]
+		print(paths[0])
+		return documentsDirectory
 	}
 	
 	@IBAction func select1(_ sender: Any) {
@@ -121,8 +163,11 @@ class ChallengeViewController: UIViewController {
 	
 	@IBAction func select3(_ sender: Any) {
 		if currentQuestion?.type == "VerbalQuestion" {
-			self.limitTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countDown), userInfo: nil, repeats: true)
-			self.button3.setTitle("Stop Recording", for: UIControlState.normal)
+			if recording {
+				self.stopRecording()
+			} else {
+				self.startRecording()
+			}
 		} else {
 			answerQuestion(index: 2)
 		}
