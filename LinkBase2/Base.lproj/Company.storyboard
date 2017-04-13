@@ -43,6 +43,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWD-5Y-OWc">
                                                     <rect key="frame" x="28" y="145" width="69" height="30"/>
                                                     <state key="normal" title="Challenge"/>
+                                                    <connections>
+                                                        <action selector="goToComp:" destination="uNv-qi-GGg" eventType="touchUpInside" id="3kM-gK-em4"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="etC-nu-GN9">
                                                     <rect key="frame" x="47" y="8" width="200" height="100"/>
@@ -60,6 +63,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnY-LF-v3q">
                                                     <rect key="frame" x="211" y="145" width="55" height="30"/>
                                                     <state key="normal" title="Favorite"/>
+                                                    <connections>
+                                                        <action selector="favorite:" destination="uNv-qi-GGg" eventType="touchUpInside" id="05w-4S-ngy"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -76,6 +82,7 @@
                                             <constraint firstItem="etC-nu-GN9" firstAttribute="top" secondItem="uNv-qi-GGg" secondAttribute="top" constant="8" id="wbE-hg-eRR"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="compImg" destination="etC-nu-GN9" id="FlP-Xe-Mea"/>
                                             <outlet property="compNamLb" destination="30i-VK-Deh" id="Yu2-2l-rsy"/>
                                             <segue destination="6dh-8W-Plz" kind="show" id="sQz-Eo-zZc">
                                                 <nil key="action"/>
@@ -129,15 +136,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qr3-9d-pqU">
-                                <rect key="frame" x="222" y="187" width="42" height="21"/>
+                                <rect key="frame" x="222" y="164" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9h-4N-U2X">
-                                <rect key="frame" x="222" y="232" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="num of Acquisitions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ep1-dH-dnw">
+                                <rect key="frame" x="8" y="194" width="155" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -172,6 +178,9 @@
                                 <rect key="frame" x="148" y="572" width="111" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Go to Questions"/>
+                                <connections>
+                                    <action selector="goToQuestion:" destination="6dh-8W-Plz" eventType="touchUpInside" id="RzU-26-XYM"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bob-san" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62b-dZ-6Cq">
                                 <rect key="frame" x="193" y="290" width="66" height="21"/>
@@ -214,8 +223,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="num of Acquisitions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ep1-dH-dnw">
-                                <rect key="frame" x="8" y="194" width="155" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9h-4N-U2X">
+                                <rect key="frame" x="222" y="193" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -238,8 +248,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="acqLab" destination="p9h-4N-U2X" id="Gdg-mP-GG8"/>
+                        <outlet property="compBlurb" destination="Lcp-DM-r0g" id="YG3-Pe-pwE"/>
+                        <outlet property="compImg" destination="4z5-ZE-ZfD" id="MlX-oH-FsR"/>
                         <outlet property="compName" destination="ftN-ga-FYc" id="1sh-20-EP2"/>
+                        <outlet property="compUrlLab" destination="jvt-Ph-dcL" id="HGS-BL-LB0"/>
+                        <outlet property="foundLabel" destination="62b-dZ-6Cq" id="Bn6-KV-7wh"/>
+                        <outlet property="numEmpLabel" destination="qr3-9d-pqU" id="9uQ-Cv-EEP"/>
                         <outlet property="numEmployee" destination="ebJ-yu-vz8" id="ehe-Vz-eGQ"/>
+                        <outlet property="pubicLabel" destination="rMr-ZH-oXe" id="sRc-XG-AEx"/>
+                        <outlet property="roundLabel" destination="5Lj-IF-F2n" id="ile-l8-5ft"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5sq-ft-2zr" userLabel="First Responder" sceneMemberID="firstResponder"/>

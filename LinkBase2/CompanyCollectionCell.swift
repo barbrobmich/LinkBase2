@@ -11,6 +11,7 @@ import UIKit
 class CompanyCollectionCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var compImg: UIImageView!
     @IBOutlet weak var compNamLb: UILabel!
     
     var company: Company!{
@@ -18,4 +19,15 @@ class CompanyCollectionCell: UICollectionViewCell {
             self.compNamLb.text = company.name!
         }
     }
+    
+    
+    @IBAction func goToComp(_ sender: Any) {
+        
+    }
+    
+    @IBAction func favorite(_ sender: Any) {
+        
+    }
+    
+    
 }
