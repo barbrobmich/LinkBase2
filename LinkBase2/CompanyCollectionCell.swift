@@ -21,10 +21,7 @@ class CompanyCollectionCell: UICollectionViewCell {
     }
     
     
-    @IBAction func goToComp(_ sender: Any) {
-        
-    }
-    
+
     @IBAction func favorite(_ sender: Any) {
         
     }

@@ -34,7 +34,12 @@ class CompanyDetailViewController: UIViewController {
 
 
     @IBAction func goToQuestion(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "CompanyChallenge") as! ChallengeDetailViewController
+        controller.company = self.company
+        self.present(controller, animated: true, completion: nil)
     }
+
+    
 
 }

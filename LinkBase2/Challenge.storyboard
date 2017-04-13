@@ -101,7 +101,7 @@
         <!--Challenge Detail View Controller-->
         <scene sceneID="NcN-J4-8OK">
             <objects>
-                <viewController id="xQe-TS-xWC" customClass="ChallengeDetailViewController" customModule="LinkBase2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompanyChallenge" id="xQe-TS-xWC" customClass="ChallengeDetailViewController" customModule="LinkBase2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ot1-M6-Cle"/>
                         <viewControllerLayoutGuide type="bottom" id="bZf-Zh-BNZ"/>
