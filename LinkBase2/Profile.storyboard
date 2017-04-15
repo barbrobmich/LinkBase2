@@ -37,7 +37,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNV-KB-Xda">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNV-KB-Xda" customClass="PFImageView">
                                         <rect key="frame" x="8" y="59" width="94" height="98"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -193,7 +193,7 @@
                         <outlet property="itemCollectionView" destination="xkU-l1-Tg9" id="03R-1q-L31"/>
                         <outlet property="lastNameTextField" destination="kmR-il-WGS" id="ZhG-Nv-gBo"/>
                         <outlet property="numChallengesCompleted" destination="myy-4w-JdR" id="ZkI-8u-yQe"/>
-                        <outlet property="profileImageView" destination="xNV-KB-Xda" id="4TA-1l-lwb"/>
+                        <outlet property="profileImage" destination="xNV-KB-Xda" id="VlQ-Kk-5rD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXM-Rh-6yc" userLabel="First Responder" sceneMemberID="firstResponder"/>

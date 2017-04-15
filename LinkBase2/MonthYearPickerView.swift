@@ -43,7 +43,7 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
             var year = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.year, from: NSDate() as Date)
         for _ in 1...15 {
             years.append(year)
-            year += 1
+            year -= 1
         }
         }
         self.years = years
@@ -93,14 +93,6 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
             return nil
         }
     }
-
-//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-//
-//        let strTitle = "YourTitle"
-//        let attString = NSAttributedString(string: strTitle, attributes: [NSForegroundColorAttributeName : UIColor.white])
-//        return attString
-//    }
-
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let month = self.selectedRow(inComponent: 0)+1

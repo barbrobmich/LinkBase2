@@ -216,8 +216,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBD-nB-z3j">
-                                <rect key="frame" x="16" y="461" width="88" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Role Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBD-nB-z3j">
+                                <rect key="frame" x="16" y="461" width="126" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -277,11 +277,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m8w-1i-vj1">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Briefly describe your role " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m8w-1i-vj1">
                                 <rect key="frame" x="16" y="490" width="334" height="119"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -331,14 +330,25 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Nej-lk-O9N">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iI9-rr-atb">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="onDoneTap:" destination="IbI-wt-FUT" eventType="touchUpInside" id="Qle-Sf-HYV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="URLTextField" destination="8wo-Oi-gMN" id="ZXh-v3-BlP"/>
                         <outlet property="backgroundImageView" destination="moq-Lz-Rmu" id="SqJ-KF-a3l"/>
-                        <outlet property="descriptionTextView" destination="m8w-1i-vj1" id="3yh-V1-qpX"/>
+                        <outlet property="doneButton" destination="iI9-rr-atb" id="F1F-ac-qal"/>
                         <outlet property="fromDatePicker" destination="lJa-jy-5OS" id="hq2-A6-tu0"/>
                         <outlet property="itemImageView" destination="zKf-cl-3ds" id="VRm-h1-rYB"/>
                         <outlet property="nameTextField" destination="XaP-Hf-q6L" id="5rk-zn-zyg"/>
+                        <outlet property="roleDescription" destination="m8w-1i-vj1" id="HTz-MV-sR1"/>
                         <outlet property="selectLanguagesButton" destination="PCv-Jh-s6K" id="21A-kO-UME"/>
                         <outlet property="selectedLanguagesLabel" destination="KVh-BZ-mty" id="qhT-8W-fOc"/>
                         <outlet property="toDatePicker" destination="KeC-4e-Gbb" id="QTh-mO-Y5O"/>
