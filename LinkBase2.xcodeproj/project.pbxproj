@@ -188,11 +188,8 @@
 			children = (
 				4838F7AB1E9F131800F82F39 /* Company */,
 				A5262BFD1E9C326300C6AC08 /* Challenge */,
-				485B5DE81E9B17CC0004F768 /* Login */,
-				485B5DF71E9B1D270004F768 /* NewItemViewController.swift */,
-				485B5DEB1E9B1A280004F768 /* AddItemViewController.swift */,
+				485B5DE81E9B17CC0004F768 /* Signup */,
 				4838F79F1E9F027700F82F39 /* DashboardViewController.swift */,
-				485B5DF91E9B1D3A0004F768 /* SignUpViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -200,8 +197,6 @@
 		485B5DDE1E9B05AD0004F768 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4838F7A51E9F044700F82F39 /* MonthYearPickerView.swift */,
-				485B5DE71E9B17C60004F768 /* Login */,
 				485B5DE21E9B16C00004F768 /* Item.swift */,
 				485B5DFB1E9B1D470004F768 /* UtilityFunctions.swift */,
 				485B5DE41E9B16E00004F768 /* Protocols.swift */,
@@ -227,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				485B5DED1E9B1A370004F768 /* ChooseLang.xib */,
+				4838F7A51E9F044700F82F39 /* MonthYearPickerView.swift */,
 				485B5DF31E9B1D120004F768 /* ItemCollectionCell.swift */,
 				485B5DF11E9B1D0C0004F768 /* ItemCell.swift */,
 				485B5DE91E9B1A1B0004F768 /* HudView.swift */,
@@ -234,21 +230,17 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-		485B5DE71E9B17C60004F768 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
-		485B5DE81E9B17CC0004F768 /* Login */ = {
+		485B5DE81E9B17CC0004F768 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
 				485B5DF51E9B1D210004F768 /* LoginViewController.swift */,
+				485B5DF91E9B1D3A0004F768 /* SignUpViewController.swift */,
+				485B5DEB1E9B1A280004F768 /* AddItemViewController.swift */,
+				485B5DF71E9B1D270004F768 /* NewItemViewController.swift */,
 				4838F7A31E9F040F00F82F39 /* HomeViewController.swift */,
 				485B5DEF1E9B1CF60004F768 /* ChooseLangViewController.swift */,
 			);
-			name = Login;
+			name = Signup;
 			sourceTree = "<group>";
 		};
 		A5262BFD1E9C326300C6AC08 /* Challenge */ = {

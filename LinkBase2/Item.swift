@@ -11,19 +11,24 @@ import UIKit
 import Foundation
 import Parse
 
-class Item: PFObject {
+class Item: PFObject, PFSubclassing {
     
     enum category {
         case Education, Professional, Community, Other
     }
     
     static func parseClassName() -> String {
-        return "Affiliation"
+        return "Item"
     }
     
     @NSManaged var user: PFUser?
     @NSManaged var name: String?
-    @NSManaged var itemImage: PFFile?
+    @NSManaged var itemImageFile: PFFile?
+    @NSManaged var itemImage: UIImage
+    @NSManaged var role: String?
+    @NSManaged var url: String?
+    @NSManaged var fromDate: String?
+    @NSManaged var toDate: String?
     
     init(user: PFUser, name: String?) {
         super.init()
@@ -35,5 +40,33 @@ class Item: PFObject {
     override init() {
         super.init()
     }
+    
+    class func postItemToParse(item: Item, withCompletion completion: PFBooleanResultBlock?) {
+        
+        let Item = PFObject(className: "Item")
+        Item["name"] = item.name
+        Item["role"] = item.role
+        Item["url"] = item.url
+        Item["item_imageFile"] = item.itemImageFile
+        let user = PFUser.current()
+        Item["user"] = user?.username
+        Item["from_date"] = item.fromDate
+        Item["to_date"] = item.toDate
+        Item.saveInBackground(block: completion)
+        
+    }
+    
+    
+    class func getPFFileFromImage(image: UIImage?) -> PFFile? {
+        // check if image is not nil
+        if let image = image {
+            // get image data and check if that is not nil
+            if let imageData = UIImagePNGRepresentation(image) {
+                return PFFile(name: "image.png", data: imageData)
+            }
+        }
+        return nil
+    }
+
     
 }

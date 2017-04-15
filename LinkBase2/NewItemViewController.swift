@@ -16,10 +16,8 @@ class NewItemViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     var langPopupViewController: ChooseLangViewController!
     @IBOutlet weak var selectLangView: UIView!
-
-    // Date Pickers
-
-
+    
+    // Date Picker Properties
     @IBOutlet weak var fromDatePicker: UIPickerView!
     @IBOutlet weak var toDatePicker: UIPickerView!
     var fromPicker: MonthYearPickerView!
@@ -34,6 +32,7 @@ class NewItemViewController: UIViewController {
     var imageDidChange: Bool?
 
     // Data
+    var item: Item!
     var categories = [Item.category.Education, Item.category.Professional, Item.category.Community, Item.category.Other]
     var index: Int!
 
@@ -41,9 +40,10 @@ class NewItemViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var URLTextField: UITextField!
     @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var roleDescription: UITextView!
     @IBOutlet weak var selectLanguagesButton: UIButton!
     @IBOutlet weak var selectedLanguagesLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
 
 
 
@@ -54,7 +54,6 @@ class NewItemViewController: UIViewController {
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +69,7 @@ class NewItemViewController: UIViewController {
         navBar?.isTranslucent = true
         self.navigationItem.title = "Add \(categories[index]) Item"
         navBar?.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        doneButton.tintColor = UIColor.white
 
 
         // load elements
@@ -94,58 +94,53 @@ class NewItemViewController: UIViewController {
         toPicker = MonthYearPickerView()
         fromPicker.onDateSelected = { (month: Int, year: Int) in
             let string = String(format: "%02d/%d", month, year)
+            //print("FromDate: /(string)")
             NSLog(string) // should show something like 05/2015
         }
 
         toPicker.onDateSelected = { (month: Int, year: Int) in
             let string = String(format: "%02d/%d", month, year)
+            //print("ToDate: /(string)")
             NSLog(string) // should show something like 05/2015
         }
+        
+        item = Item()
     }
+    
 
-    // MARK: - ACTIONS
+    // MARK: - ALERT ACTIONS
 
-
-
-
+    func showAlert() {
+        print("showing alert")
+        
+        let alert = UIAlertController(title: "Saved Item", message: "Add New Item or Continue to App?", preferredStyle: .alert)
+        
+        let addNewAction = UIAlertAction(title: "Add New", style: .default, handler: { (action) -> Void in
+            print("going to addNewVC")
+            let storyboard = UIStoryboard(name: "Signup", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "AddItem")
+            self.present(controller, animated: true, completion: nil)
+        })
+    
+        let continueAction = UIAlertAction(title: "Continue", style: .default, handler: { (action) -> Void in
+            print("Going to HomeVC")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.present(controller, animated: true, completion: nil)
+        })
+        
+        alert.addAction(addNewAction)
+        alert.addAction(continueAction)
+        present(alert, animated: true, completion: nil)
+    }
 
      // MARK: - PHOTO IMAGE RELATED METHODS
 
-//    func getCurrentUserImage() {
-//
-//        let image = PFImageView()
-//
-//        let currentUser = PFUser.current() // change this when user is implementd
-//        if currentUser["item_image"] != nil {
-//            //   myImage.file = currentUser["profile_image"] as? PFFile
-//            image.file = currentUser.object(forKey: "item_image") as? PFFile
-//            image.loadInBackground()
-//        } else {
-//            image.image = UIImage(named: "itemPlaceholder")!
-//        }
-//        itemImageView.image = myImage.image
-//        itemImageView.clipsToBounds = true
-//        itemImageView.layer.cornerRadius = 15
-//    }
 
     func getPhoto(_ sender: UITapGestureRecognizer){
         print("Getting the photo")
         pickPhoto()
     }
-
-
-//    func postItemImageToParse() {
-//
-//        User.saveProfileImage(image: itemImageView.image) { (success: Bool, error: Error?) -> Void in
-//            if success {
-//                print("Successful Post to Parse")
-//            }
-//            else {
-//                print("Can't post to parse")
-//            }
-//        }
-//    }
-
 
 
     // MARK: - LANGUAGES SECTION
@@ -175,6 +170,23 @@ class NewItemViewController: UIViewController {
         self.present(controller, animated: true, completion: nil)
     }
 
+    
+    @IBAction func onDoneTap(_ sender: UIButton) {
+        item.name = nameTextField.text
+        item.user = PFUser.current()
+        item.url = URLTextField.text
+        item.role = roleDescription.text
+        item.itemImageFile = Item.getPFFileFromImage(image: itemImageView.image)
+        Item.postItemToParse(item: item){ (success: Bool, error: Error?) -> Void in
+            if success {
+                print("Successful Post to Parse")
+                self.showAlert()
+            }
+            else {
+                print("Can't post to parse")
+            }
+        }
+    }
 
 }
 

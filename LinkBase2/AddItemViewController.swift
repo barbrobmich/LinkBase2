@@ -11,8 +11,9 @@ import UIKit
 class AddItemViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    var items: [Item] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,16 @@ class AddItemViewController: UIViewController {
         addBlurToImage(image: backgroundImageView, type: .light)
 
         tableView.dataSource = self
-        tableView.delegate = self 
+        tableView.delegate = self
+
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+       
+    }
     
+
     // MARK: - Navigation
 
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,6 +38,8 @@ class AddItemViewController: UIViewController {
 //    }
 
 }
+
+
 
 extension AddItemViewController: DidSelectItem {
    
@@ -59,6 +68,7 @@ extension AddItemViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             cell.cellSection = 1
+            cell.items = items
         } else {
             cell.cellSection = 2
             cell.selectItemDelegate = self 

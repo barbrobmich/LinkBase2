@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ItemCell: UITableViewCell {
 
@@ -20,7 +21,9 @@ class ItemCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        fetchItems()
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,10 +33,34 @@ class ItemCell: UITableViewCell {
         collectionView.delegate = self 
         // Configure the view for the selected state
     }
+    
+    func fetchItems() {
 
-    
-    
-    
+        let query = PFQuery(className: Item.parseClassName())
+        
+        query.order(byDescending: "_created_at")
+        query.whereKey("user", equalTo: PFUser.current()?.username!)
+        query.limit = 20
+        query.findObjectsInBackground { (parseItems: [PFObject]?, error: Error?) -> Void in
+            
+            if let myItems = parseItems {
+                print("ParseItems: \(parseItems!)")
+                for item in myItems {
+                    if item is Item {
+                        print("object is subclass")
+                    }
+                    if let item = item as? Item {
+                        print("object cast as item")
+                        self.items.insert(item, at: 0)
+                    }
+                }
+                self.collectionView.reloadData()
+            } else {
+                print(error?.localizedDescription as Any)
+            }
+        }
+    }
+
 }
 
 extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -41,6 +68,7 @@ extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if cellSection == 1 {
+            print("ItemsCount is \(items.count)")
             return items.count
         }
         return categories.count
@@ -77,4 +105,11 @@ extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
 //        }
 //    }
 }
+
+extension ItemCell {
+    
+
+
+}
+
 

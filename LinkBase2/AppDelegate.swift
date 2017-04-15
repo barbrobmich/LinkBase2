@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
 
+        Item.registerSubclass()
 
         if PFUser.current() == nil {
             print("There is no current user")
