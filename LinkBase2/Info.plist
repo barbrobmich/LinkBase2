@@ -32,6 +32,8 @@
 	<string>User has option to take a photo for an item or profile image</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>User has option to upload photos for profile image and items</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Used for recording verbal answers</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
