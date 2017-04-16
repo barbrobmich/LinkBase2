@@ -111,6 +111,11 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 				self.button2.alpha = 1
 				self.button3.alpha = 1
 				self.button4.alpha = 1
+				
+				self.button1.isEnabled = true
+				self.button2.isEnabled = true
+				self.button3.isEnabled = true
+				self.button4.isEnabled = true
 			} else {
 				self.timeLimitLabel.text = "\(self.currentQuestion?.limit ?? 0)"
 				self.button3.setTitle("Start Recording", for: UIControlState.normal)
@@ -120,6 +125,11 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 				self.button2.alpha = 0
 				self.button3.alpha = 1
 				self.button4.alpha = 0
+				
+				self.button1.isEnabled = false
+				self.button2.isEnabled = false
+				self.button3.isEnabled = true
+				self.button4.isEnabled = false
 			}
 			
 			self.questionNumberLabel.alpha = 1
