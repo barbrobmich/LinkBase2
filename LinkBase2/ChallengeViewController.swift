@@ -65,23 +65,26 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
         // Dispose of any resources that can be recreated.
     }
 	
-	func answerQuestion(index: Int) {
-		if questionIndex == (questions.count - 1) {
-			performSegue(withIdentifier: "finishChallenge", sender: nil)
-			return
-		}
-		
-		if self.currentQuestion?.type == "ChoiceQuestion" {
-			if index == self.currentQuestion?.correctAnswerIndex {
-				print("correct")
-			} else {
-				print("wrong")
+	func answerQuestion(index: Int?) {
+		if index != nil {
+			if questionIndex == (questions.count - 1) {
+				performSegue(withIdentifier: "finishChallenge", sender: nil)
+				return
+			}
+			
+			if self.currentQuestion?.type == "ChoiceQuestion" {
+				if index == self.currentQuestion?.correctAnswerIndex {
+					print("correct")
+				} else {
+					print("wrong")
+				}
 			}
 		}
 		
 		UIView.animate(withDuration: 0.2, animations: {
 			self.questionNumberLabel.alpha = 0
 			self.questionTextLabel.alpha = 0
+			self.timeLimitLabel.alpha = 0
 			self.button1.alpha = 0
 			self.button2.alpha = 0
 			self.button3.alpha = 0
@@ -207,6 +210,10 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 		} catch let error as NSError {
 			print("AudioPlayer error: \(error.localizedDescription)")
 		}
+	}
+	
+	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+		answerQuestion(index: nil)
 	}
 	
 	@IBAction func select1(_ sender: Any) {
