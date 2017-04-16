@@ -9,6 +9,13 @@
 import UIKit
 import Parse
 
+enum CompClassification: String{
+    case seriesA = "Series A"
+    case seriesB = "Series B"
+    case seriesC = "Series C"
+    case Public = "Public"
+}
+
 class Company: NSObject {
 	var name: String?
 	var logo: UIImage?
@@ -19,7 +26,7 @@ class Company: NSObject {
     var wentPublic: String?
     var founders: [String]?
     var compDescription: String?
-    var classifications: [String]?
+    var classifications: CompClassification
     var compUrl: URL?
     //var address: Address Todo, make Address Model
     //var event: Event Todo, make Event Model
@@ -28,12 +35,15 @@ class Company: NSObject {
 		self.name = name
 		self.logo = logo
 		self.questions = questions
+        self.classifications = .Public
 	}
     
-    init(name: String, numEmployees: Int, logo: UIImage){
+    init(name: String, numEmployees: Int, logo: UIImage, classification: CompClassification = .Public, isPub: Bool){
         self.name = name
         self.numEmployees = numEmployees
         self.logo = logo
+        self.classifications = classification
+        self.isPublic = isPub
         
     }
     
@@ -47,6 +57,7 @@ class Company: NSObject {
         compDescription =   object["description"] as? String
         //        classifications =   object["classif"] as? [String]?
         //        compUrl =           object["url"] as? URL
+        self.classifications = CompClassification(rawValue: (object["classification"] as? String)!)!
         
     }
     

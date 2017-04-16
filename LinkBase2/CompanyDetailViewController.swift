@@ -23,14 +23,16 @@ class CompanyDetailViewController: UIViewController {
     var company: Company!
 
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         self.compName.text = self.company.name!
         self.compImg.image = self.company.logo!
+        
+        // show navigation
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+
     }
 
 
@@ -40,7 +42,5 @@ class CompanyDetailViewController: UIViewController {
         controller.company = self.company
         self.present(controller, animated: true, completion: nil)
     }
-
-    
 
 }
