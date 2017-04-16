@@ -18,8 +18,8 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 	var limitTimer: Timer?
 	var recording = false
 	
-	var recordingSession: AVAudioSession?
-	var audioRecorder: AVAudioRecorder?
+	var recordingSession: AVAudioSession!
+	var audioRecorder: AVAudioRecorder!
 	var audioPlayer: AVAudioPlayer?
 	var audioFileName: URL?
 	
@@ -35,7 +35,29 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
     override func viewDidLoad() {
         super.viewDidLoad()
 		questions = (company?.questions)!
+		self.button1.alpha = 0
+		self.button2.alpha = 0
+		self.button3.alpha = 0
+		self.button4.alpha = 0
 		renderNextQuestion()
+		
+		recordingSession = AVAudioSession.sharedInstance()
+		
+		do {
+			try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+			try recordingSession.setActive(true)
+			recordingSession.requestRecordPermission() { [unowned self] allowed in
+				DispatchQueue.main.async {
+					if allowed {
+						print("allowed to record")
+					} else {
+						// failed to record!
+					}
+				}
+			}
+		} catch {
+			// failed to record!
+		}
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,13 +65,14 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
         // Dispose of any resources that can be recreated.
     }
 	
-	func answerQuestion(index: Int) {
+	func answerQuestion(index: Int?) {
 		if questionIndex == (questions.count - 1) {
 			performSegue(withIdentifier: "finishChallenge", sender: nil)
 			return
 		}
 		
-		if self.currentQuestion?.type == "ChoiceQuestion" {
+	
+		if index != nil && self.currentQuestion?.type == "ChoiceQuestion" {
 			if index == self.currentQuestion?.correctAnswerIndex {
 				print("correct")
 			} else {
@@ -57,9 +80,11 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 			}
 		}
 		
+		
 		UIView.animate(withDuration: 0.2, animations: {
 			self.questionNumberLabel.alpha = 0
 			self.questionTextLabel.alpha = 0
+			self.timeLimitLabel.alpha = 0
 			self.button1.alpha = 0
 			self.button2.alpha = 0
 			self.button3.alpha = 0
@@ -75,6 +100,7 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 			self.currentQuestion = self.questions[self.questionIndex]
 			self.questionNumberLabel.text = "\(self.questionIndex + 1)"
 			self.questionTextLabel.text = self.currentQuestion?.question
+			self.button3.isEnabled = true
 			
 			if self.currentQuestion?.type == "ChoiceQuestion" {
 				self.button1.setTitle("\((self.currentQuestion?.choices?[0])!)", for: UIControlState.normal)
@@ -101,20 +127,53 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 		})
 	}
 	
+	func finishRecording(success: Bool) {
+		audioRecorder.stop()
+		audioRecorder = nil
+		
+		if success {
+			recording = false
+			self.limitTimer?.invalidate()
+			self.button3.setTitle("Start Recording", for: UIControlState.normal)
+			
+			audioRecorder?.stop()
+			audioRecorder = nil
+			
+			playAudio()
+		} else {
+			
+			// recording failed :(
+		}
+	}
+	
+	func recordTapped() {
+		if audioRecorder == nil {
+			startRecording()
+		} else {
+			finishRecording(success: true)
+		}
+	}
+	
+	func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+		if !flag {
+			finishRecording(success: false)
+		}
+	}
+	
 	func countDown() {
 		print("count \(self.timeLimitLabel.text!)")
 		var timeLeft = Int(self.timeLimitLabel.text!)! - 1
 		self.timeLimitLabel.text = "\(timeLeft)"
 		if timeLeft == 0 {
-			self.stopRecording()
+			self.finishRecording(success: true)
 		}
 	}
 	
 	func startRecording() {
 		self.limitTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.countDown), userInfo: nil, repeats: true)
 		self.button3.setTitle("Stop Recording", for: UIControlState.normal)
-		
 		audioFileName = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+
 		
 		let settings = [
 			AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -122,32 +181,20 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 			AVNumberOfChannelsKey: 1,
 			AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
 		]
+		
 		do {
 			recording = true;
 			audioRecorder = try AVAudioRecorder(url: audioFileName!, settings: settings)
-			audioRecorder?.delegate = self
-			audioRecorder?.record()
+			audioRecorder.delegate = self
+			audioRecorder.record()
 		} catch {
 			print("audio error")
 		}
 	}
 	
-	func stopRecording() {
-		recording = false
-		self.limitTimer?.invalidate()
-		self.button3.setTitle("Start Recording", for: UIControlState.normal)
-		
-		audioRecorder?.stop()
-		audioRecorder = nil
-		
-		playAudio()
-	}
-	
 	func getDocumentsDirectory() -> URL {
-		
 		let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 		let documentsDirectory = paths[0]
-		print(paths[0])
 		return documentsDirectory
 	}
 	
@@ -156,18 +203,21 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 			print("attempting to play audio")
 			if audioFileName != nil {
 				print("play audio")
-//				try audioPlayer = AVAudioPlayer(contentsOf: (audioFileName)!)
-				let item = AVPlayerItem(url: audioFileName!)
-				NotificationCenter.default.addObserver(self, selector: #selector(self.renderNextQuestion), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: item)
-				let audioPlayer = AVPlayer(playerItem: item)
-
-//				audioPlayer.delegate = self
-//				audioPlayer.prepareToPlay()
-				audioPlayer.play()
+				try audioPlayer = AVAudioPlayer(contentsOf: (audioFileName)!)
+				audioPlayer!.delegate = self
+				audioPlayer!.prepareToPlay()
+				audioPlayer!.play()
+				
+				button3.setTitle("Previewing", for:  UIControlState.normal)
+				button3.isEnabled = false
 			}
 		} catch let error as NSError {
 			print("AudioPlayer error: \(error.localizedDescription)")
 		}
+	}
+	
+	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+		answerQuestion(index: nil)
 	}
 	
 	@IBAction func select1(_ sender: Any) {
@@ -185,7 +235,7 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 	@IBAction func select3(_ sender: Any) {
 		if currentQuestion?.type == "VerbalQuestion" {
 			if recording {
-				self.stopRecording()
+				self.finishRecording(success: true)
 			} else {
 				self.startRecording()
 			}
