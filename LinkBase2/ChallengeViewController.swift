@@ -66,20 +66,20 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
     }
 	
 	func answerQuestion(index: Int?) {
-		if index != nil {
-			if questionIndex == (questions.count - 1) {
-				performSegue(withIdentifier: "finishChallenge", sender: nil)
-				return
-			}
-			
-			if self.currentQuestion?.type == "ChoiceQuestion" {
-				if index == self.currentQuestion?.correctAnswerIndex {
-					print("correct")
-				} else {
-					print("wrong")
-				}
+		if questionIndex == (questions.count - 1) {
+			performSegue(withIdentifier: "finishChallenge", sender: nil)
+			return
+		}
+		
+	
+		if index != nil && self.currentQuestion?.type == "ChoiceQuestion" {
+			if index == self.currentQuestion?.correctAnswerIndex {
+				print("correct")
+			} else {
+				print("wrong")
 			}
 		}
+		
 		
 		UIView.animate(withDuration: 0.2, animations: {
 			self.questionNumberLabel.alpha = 0
@@ -100,6 +100,7 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 			self.currentQuestion = self.questions[self.questionIndex]
 			self.questionNumberLabel.text = "\(self.questionIndex + 1)"
 			self.questionTextLabel.text = self.currentQuestion?.question
+			self.button3.isEnabled = true
 			
 			if self.currentQuestion?.type == "ChoiceQuestion" {
 				self.button1.setTitle("\((self.currentQuestion?.choices?[0])!)", for: UIControlState.normal)
@@ -207,7 +208,7 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 				audioPlayer!.prepareToPlay()
 				audioPlayer!.play()
 				
-				button3.setTitle("Previewing audio", for:  UIControlState.normal)
+				button3.setTitle("Previewing", for:  UIControlState.normal)
 				button3.isEnabled = false
 			}
 		} catch let error as NSError {

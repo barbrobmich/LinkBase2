@@ -31,7 +31,7 @@ class ChallengeListViewController: UIViewController, UITableViewDelegate, UITabl
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		facebook = Company(name: "Facebook", logo: UIImage(named: "facebook")!, questions: [q9, q4])
+		facebook = Company(name: "Facebook", logo: UIImage(named: "facebook")!, questions: [q9, q4, q6, q7])
 		google = Company(name: "Google", logo: UIImage(named: "google")!, questions: [q3, q4, q1, q2])
 		twitter = Company(name: "Twitter", logo: UIImage(named: "twitter")!, questions: [q3, q4, q1, q2])
 		microsoft = Company(name: "Microsoft", logo: UIImage(named: "microsoft")!, questions: [q3, q4, q1, q2])
