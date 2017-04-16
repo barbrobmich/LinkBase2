@@ -11,7 +11,10 @@ import UIKit
 class CompanyViewController: UIViewController {
     
     @IBOutlet weak var companyCollection: UICollectionView!
+    @IBOutlet weak var searchController: UISearchBar!
+
     var companies: [Company] = []
+    var filteredCompanies = [Company]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,22 +23,29 @@ class CompanyViewController: UIViewController {
         companyCollection.delegate = self
         companyCollection.dataSource = self
         
+        // set up searchController
+        self.searchController.showsScopeBar = true
+        self.searchController.scopeButtonTitles = ["All", "Startup", "Public", "Series A", "Series C"]
+        self.searchController.selectedScopeButtonIndex = 0
+        self.searchController.barStyle = UIBarStyle.blackTranslucent
+        self.searchController.delegate = self
+        self.searchController.sizeToFit()
+        
+        //hide nav bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+
+        
         // Make temp Company data
-        let tempCompany = [Company(name: "Uber", numEmployees: 100, logo: UIImage(named: "uber")!),
-                           Company(name: "Coupa", numEmployees: 500, logo: UIImage(named: "coupa")!),
-                           Company(name: "Google", numEmployees: 9001, logo: UIImage(named: "google")!)]
+        let tempCompany = [Company(name: "Uber", numEmployees: 100, logo: UIImage(named: "uber")! ,classification: CompClassification.seriesC ,isPub: false),
+                           Company(name: "Coupa", numEmployees: 500, logo: UIImage(named: "coupa")!, isPub: true ),
+                           Company(name: "Google", numEmployees: 9001, logo: UIImage(named: "google")!, isPub: true)]
         self.companies = tempCompany
     }
-
-
-
     
-    
-    
-    
-    
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        // On Return from detail page
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
     
     
     //MARK: - Navigation
@@ -61,18 +71,82 @@ extension CompanyViewController: UICollectionViewDelegate, UICollectionViewDataS
             return 0
             // Second section is Company Data
         }else if section == 1{
-            return self.companies.count
+            if (self.searchController?.text!.isEmpty)!{
+                return self.companies.count
+            }else{
+                return self.filteredCompanies.count
+            }
         }else{
             // Third section is optional(Trending)
             return 0
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.companyCollection.dequeueReusableCell(withReuseIdentifier: "companyCell", for: indexPath) as! CompanyCollectionCell
-        let company = self.companies[indexPath.row]
+        let company: Company
+        if (self.searchController?.text!.isEmpty)!{
+            company = self.companies[indexPath.row]
+        }else{
+            company =  self.filteredCompanies[indexPath.row]
+        }
         cell.company = company
         return cell
     }
     
+}
+// Searches on the company table based on input change
+extension CompanyViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filterContentForSearchText(searchText: searchText)
+    }
     
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+    
+    func containedText(compName: String, string: String) -> Bool{
+        if string.isEmpty{
+            return true
+        }else{
+            return compName.range(of: string, options: .caseInsensitive) != nil
+        }
+        
+    }
+    // TODO: make it so that when you select a button, it filters that. Can't seem to make that work
+    func filterContentForSearchText(searchText: String, scope: String = "All"){
+        
+        self.filteredCompanies = self.companies.filter({ (company: Company) -> Bool in
+            var filterCondition: Bool
+            
+            switch scope {
+            
+            case "All":
+                filterCondition = true
+                
+            case "Startup":
+                
+                filterCondition =  (company.isPublic == false)
+
+            case "Public":
+                
+                filterCondition =  (company.isPublic == true)
+
+            case "Series A":
+                filterCondition = (company.classifications == .seriesA)
+
+            case "Series C":
+                filterCondition = (company.classifications == .seriesC)
+
+            default:
+                filterCondition = false
+
+            }
+            let temp = containedText(compName: company.name!, string: searchText)
+            
+            return filterCondition && temp
+            
+        })
+        self.companyCollection.reloadData()
+    }
 }

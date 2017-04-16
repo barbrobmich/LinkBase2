@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OqP-QH-biM">
-                                <rect key="frame" x="0.0" y="107" width="375" height="511"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VVb-Mr-fuh">
@@ -73,26 +73,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="afO-ec-UwO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="EMV-5p-eke"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="afO-ec-UwO" firstAttribute="leading" secondItem="f2T-wx-QYS" secondAttribute="leading" id="Jdz-ri-alW"/>
+                            <constraint firstItem="afO-ec-UwO" firstAttribute="top" secondItem="f2T-wx-QYS" secondAttribute="top" id="VkZ-9H-cpx"/>
+                            <constraint firstAttribute="trailing" secondItem="afO-ec-UwO" secondAttribute="trailing" id="si5-zg-Btz"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Company" id="l8i-Gr-I03"/>
-                    <navigationItem key="navigationItem" id="Goc-7H-kIs">
-                        <barButtonItem key="leftBarButtonItem" title="Edit Profile" id="mRz-lr-raL">
-                            <connections>
-                                <action selector="editProfile:" destination="IPl-AZ-c0p" id="joE-OX-OSA"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Challenge" id="kfm-Ki-DX1">
-                            <connections>
-                                <action selector="goChallenge:" destination="IPl-AZ-c0p" id="Ndr-HQ-2Mt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="CompanyCollection" destination="OqP-QH-biM" id="nsa-oo-aRF"/>
                         <outlet property="companyCollection" destination="OqP-QH-biM" id="vI3-AB-jCD"/>
+                        <outlet property="searchController" destination="afO-ec-UwO" id="fcl-JG-vzo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6m-ts-PDV" userLabel="First Responder" sceneMemberID="firstResponder"/>

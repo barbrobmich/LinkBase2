@@ -83,6 +83,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gfH-4w-eGz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Company" id="YyI-v7-ite"/>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rru-pU-lft">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
