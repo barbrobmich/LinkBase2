@@ -206,6 +206,9 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 				audioPlayer!.delegate = self
 				audioPlayer!.prepareToPlay()
 				audioPlayer!.play()
+				
+				button3.setTitle("Previewing audio", for:  UIControlState.normal)
+				button3.isEnabled = false
 			}
 		} catch let error as NSError {
 			print("AudioPlayer error: \(error.localizedDescription)")
