@@ -12,6 +12,7 @@ class CompanyViewController: UIViewController {
     
     @IBOutlet weak var companyCollection: UICollectionView!
     @IBOutlet weak var searchController: UISearchBar!
+    var scope: String = "All"
 
     var companies: [Company] = []
     var filteredCompanies = [Company]()
@@ -71,11 +72,12 @@ extension CompanyViewController: UICollectionViewDelegate, UICollectionViewDataS
             return 0
             // Second section is Company Data
         }else if section == 1{
-            if (self.searchController?.text!.isEmpty)!{
+            if self.scope == "All" && (self.searchController.text?.isEmpty)!{
                 return self.companies.count
             }else{
                 return self.filteredCompanies.count
             }
+            
         }else{
             // Third section is optional(Trending)
             return 0
@@ -85,7 +87,7 @@ extension CompanyViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.companyCollection.dequeueReusableCell(withReuseIdentifier: "companyCell", for: indexPath) as! CompanyCollectionCell
         let company: Company
-        if (self.searchController?.text!.isEmpty)!{
+        if self.scope == "All" && (self.searchController.text?.isEmpty)!{
             company = self.companies[indexPath.row]
         }else{
             company =  self.filteredCompanies[indexPath.row]
@@ -98,21 +100,16 @@ extension CompanyViewController: UICollectionViewDelegate, UICollectionViewDataS
 // Searches on the company table based on input change
 extension CompanyViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.filterContentForSearchText(searchText: searchText)
+        self.filterContentForSearchText(searchText: searchText, scope: self.scope)
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filterContentForSearchText(searchText: searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+        //scope is updated here
+        self.scope = searchBar.scopeButtonTitles![selectedScope]
+        filterContentForSearchText(searchText: searchBar.text!, scope: self.scope)
     }
     
-    func containedText(compName: String, string: String) -> Bool{
-        if string.isEmpty{
-            return true
-        }else{
-            return compName.range(of: string, options: .caseInsensitive) != nil
-        }
-        
-    }
+
     // TODO: make it so that when you select a button, it filters that. Can't seem to make that work
     func filterContentForSearchText(searchText: String, scope: String = "All"){
         
@@ -142,11 +139,15 @@ extension CompanyViewController: UISearchBarDelegate{
                 filterCondition = false
 
             }
-            let temp = containedText(compName: company.name!, string: searchText)
             
-            return filterCondition && temp
+            if searchText.isEmpty{
+                return filterCondition
+            }else{
+                return filterCondition && company.name!.range(of: searchText, options: .caseInsensitive) != nil
+            }
             
         })
+        
         self.companyCollection.reloadData()
     }
 }
