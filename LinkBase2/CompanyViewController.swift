@@ -36,12 +36,13 @@ class CompanyViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
 
         
-        // Make temp Company data
-        let tempCompany = [Company(name: "Uber", numEmployees: 100, logo: UIImage(named: "uber")! ,classification: CompClassification.seriesC ,isPub: false),
-                           Company(name: "Coupa", numEmployees: 500, logo: UIImage(named: "coupa")!, isPub: true ),
-                           Company(name: "Google", numEmployees: 9001, logo: UIImage(named: "google")!, isPub: true)]
-        self.companies = tempCompany
+        // Get Company Data   
+    
+        
+        self.companies = Seed.getCustomers()
     }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
         // On Return from detail page
