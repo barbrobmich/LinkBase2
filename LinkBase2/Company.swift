@@ -13,6 +13,7 @@ enum CompClassification: String{
     case seriesA = "Series A"
     case seriesB = "Series B"
     case seriesC = "Series C"
+    case seriesG = "Series G"
     case Public = "Public"
 }
 
@@ -45,6 +46,21 @@ class Company: NSObject {
         self.classifications = classification
         self.isPublic = isPub
         
+    }
+    
+    init(hash: [String:Any]){
+        
+        self.name = hash["name"] as! String?
+        self.logo = hash["logo"] as! UIImage?
+        self.questions = hash["question"] as! [Question]
+        self.numEmployees = hash["numEmploy"] as! Int
+        self.numOfAcquisitions = hash["numAcq"] as! Int
+        self.wentPublic = hash["wentPub"] as! String?
+        self.isPublic = hash["isPub"] as! Bool
+        self.founders = hash["founder"] as! [String]?
+        self.compDescription = hash["desc"] as! String?
+        self.classifications = CompClassification(rawValue: hash["class"] as! String)!
+        self.compUrl = URL(string: hash["url"] as! String)
     }
     
     init(object: PFObject){

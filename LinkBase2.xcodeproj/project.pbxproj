@@ -33,6 +33,7 @@
 		485B5DF81E9B1D270004F768 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DF71E9B1D270004F768 /* NewItemViewController.swift */; };
 		485B5DFA1E9B1D3A0004F768 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DF91E9B1D3A0004F768 /* SignUpViewController.swift */; };
 		485B5DFC1E9B1D470004F768 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DFB1E9B1D470004F768 /* UtilityFunctions.swift */; };
+		489F03431EA4A6440095A057 /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489F03421EA4A6440095A057 /* Seed.swift */; };
 		A5262BFF1E9C348C00C6AC08 /* ChallengeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5262BFE1E9C348C00C6AC08 /* ChallengeListViewController.swift */; };
 		A5262C021E9C387B00C6AC08 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5262C011E9C387B00C6AC08 /* Company.swift */; };
 		A53164E81E9C3B66007C6D3D /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53164E71E9C3B66007C6D3D /* Question.swift */; };
@@ -93,6 +94,7 @@
 		485B5DF71E9B1D270004F768 /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		485B5DF91E9B1D3A0004F768 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		485B5DFB1E9B1D470004F768 /* UtilityFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
+		489F03421EA4A6440095A057 /* Seed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
 		86DB847BAD24964ABACF6B46 /* Pods-LinkBase2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkBase2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LinkBase2/Pods-LinkBase2.debug.xcconfig"; sourceTree = "<group>"; };
 		A5262BFE1E9C348C00C6AC08 /* ChallengeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeListViewController.swift; sourceTree = "<group>"; };
 		A5262C011E9C387B00C6AC08 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
@@ -243,6 +245,14 @@
 			name = Signup;
 			sourceTree = "<group>";
 		};
+		489F033F1EA435EA0095A057 /* Seed */ = {
+			isa = PBXGroup;
+			children = (
+				489F03421EA4A6440095A057 /* Seed.swift */,
+			);
+			name = Seed;
+			sourceTree = "<group>";
+		};
 		A5262BFD1E9C326300C6AC08 /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +305,7 @@
 		E5380E461E99975A0004F577 /* LinkBase2 */ = {
 			isa = PBXGroup;
 			children = (
+				489F033F1EA435EA0095A057 /* Seed */,
 				485B5DDF1E9B05B50004F768 /* Views */,
 				485B5DDE1E9B05AD0004F768 /* Model */,
 				485B5DDD1E9B05A30004F768 /* Controllers */,
@@ -538,6 +549,7 @@
 				485B5DFA1E9B1D3A0004F768 /* SignUpViewController.swift in Sources */,
 				4838F7AA1E9F12FF00F82F39 /* CompanyViewController.swift in Sources */,
 				A5262C021E9C387B00C6AC08 /* Company.swift in Sources */,
+				489F03431EA4A6440095A057 /* Seed.swift in Sources */,
 				A53164F31E9C7EC0007C6D3D /* FinishChallengeViewController.swift in Sources */,
 				485B5DF81E9B1D270004F768 /* NewItemViewController.swift in Sources */,
 				485B5DE51E9B16E10004F768 /* Protocols.swift in Sources */,
