@@ -19,14 +19,25 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         styleBackgroundImage()
-
+		homeChallengeCollectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+		
     }
+	
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return 10
+	}
+	
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeChallengeCollectionCell", for: indexPath as IndexPath) as! HomeChallengeCollectionCell
+
+		return cell
+	}
 
     func styleBackgroundImage() {
 
