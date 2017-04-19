@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
 
         styleBackgroundImage()
 		homeChallengeCollectionView.dataSource = self
+		homeChallengeCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         // Do any additional setup after loading the view.
     }
 
