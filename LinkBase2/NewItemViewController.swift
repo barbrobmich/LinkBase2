@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class NewItemViewController: UIViewController {
+class NewItemViewController: UIViewController{
 
 
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -18,13 +18,8 @@ class NewItemViewController: UIViewController {
     @IBOutlet weak var selectLangView: UIView!
     
     // Date Picker Properties
-    @IBOutlet weak var fromDatePicker: UIPickerView!
-    @IBOutlet weak var toDatePicker: UIPickerView!
-    var fromPicker: MonthYearPickerView!
-    var toPicker: MonthYearPickerView!
-
-    var fromDate: Int!
-    var toDate: Int!
+    @IBOutlet weak var fromDatePicker: MonthYearPickerView!
+    @IBOutlet weak var toDatePicker: MonthYearPickerView!
 
     // Photo Properties
     var onPhotoTap: UITapGestureRecognizer!
@@ -87,22 +82,6 @@ class NewItemViewController: UIViewController {
         onPhotoTap = UITapGestureRecognizer(target: self, action: #selector(self.getPhoto(_:)))
         itemImageView.addGestureRecognizer(onPhotoTap)
         itemImageView.isUserInteractionEnabled = true
-
-        // load datepicker
-
-        fromPicker = MonthYearPickerView()
-        toPicker = MonthYearPickerView()
-        fromPicker.onDateSelected = { (month: Int, year: Int) in
-            let string = String(format: "%02d/%d", month, year)
-            //print("FromDate: /(string)")
-            NSLog(string) // should show something like 05/2015
-        }
-
-        toPicker.onDateSelected = { (month: Int, year: Int) in
-            let string = String(format: "%02d/%d", month, year)
-            //print("ToDate: /(string)")
-            NSLog(string) // should show something like 05/2015
-        }
         
         item = Item()
     }
@@ -135,7 +114,6 @@ class NewItemViewController: UIViewController {
     }
 
      // MARK: - PHOTO IMAGE RELATED METHODS
-
 
     func getPhoto(_ sender: UITapGestureRecognizer){
         print("Getting the photo")
@@ -176,6 +154,16 @@ class NewItemViewController: UIViewController {
         item.user = PFUser.current()
         item.url = URLTextField.text
         item.role = roleDescription.text
+        
+        item.fromMonth = fromDatePicker.month
+        item.fromYear = fromDatePicker.year
+        item.toMonth = toDatePicker.month
+        item.toYear = toDatePicker.year
+        
+        
+        print("From: \(fromDatePicker.month) / \(fromDatePicker.year) to: \(item.toMonth) / \(item.toYear)")
+    
+        
         item.itemImageFile = Item.getPFFileFromImage(image: itemImageView.image)
         Item.postItemToParse(item: item){ (success: Bool, error: Error?) -> Void in
             if success {
@@ -187,7 +175,6 @@ class NewItemViewController: UIViewController {
             }
         }
     }
-
 }
 
 

@@ -8,6 +8,11 @@
 
 import UIKit
 
+//protocol DatePickerDelegate {
+//    
+//    func dateChanged(month: Int, year: Int)
+//}
+
 class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var months: [String]!
@@ -60,6 +65,8 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
 
     self.delegate = self
     self.dataSource = self
+        
+        
 
         let currentMonth = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.month, from: NSDate() as Date)
         self.selectRow(currentMonth - 1, inComponent: 0, animated: false)
@@ -82,13 +89,44 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
         }
     }
 
-
+//NSFontAttributeName: UIFont.systemFont(ofSize: 10, weight: UIFontWeightLight)
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var label: UILabel
+        
+        if let view = view as? UILabel {
+            label = view
+        } else {
+            label = UILabel()
+        }
+        
+        label.textColor = .white
+        label.textAlignment = .left
+        label.font = UIFont(name: "SanFranciscoText-Light", size: 12)
+        
+        // where data is an Array of String
+        switch component {
+        case 0:
+            label.text = months[row]
+        case 1:
+            label.text = "\(years[row])"
+        default:
+            break
+        }
+        
+        return label
+    }
+    
+    
+    
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         switch component {
+            
         case 0:
             return NSAttributedString(string: months[row], attributes: [NSForegroundColorAttributeName : UIColor.white])
         case 1:
             return NSAttributedString(string: "\(years[row])", attributes: [NSForegroundColorAttributeName : UIColor.white])
+            
         default:
             return nil
         }
@@ -101,6 +139,7 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
             block(month,year)
         }
 
+        print("picked \(month) / \(year)")
         self.month = month
         self.year = year
     }
