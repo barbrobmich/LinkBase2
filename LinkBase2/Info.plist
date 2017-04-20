@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>User has option to take a photo for an item or profile image</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Used for recording verbal answers</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>User has option to upload photos for profile image and items</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -28,12 +34,6 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>User has option to take a photo for an item or profile image</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>User has option to upload photos for profile image and items</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Used for recording verbal answers</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

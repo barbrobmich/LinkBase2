@@ -27,8 +27,11 @@ class Item: PFObject, PFSubclassing {
     @NSManaged var itemImage: UIImage
     @NSManaged var role: String?
     @NSManaged var url: String?
-    @NSManaged var fromDate: String?
-    @NSManaged var toDate: String?
+    @NSManaged var fromMonth: Int
+    @NSManaged var fromYear: Int
+    @NSManaged var toMonth: Int
+    @NSManaged var toYear: Int
+    
     
     init(user: PFUser, name: String?) {
         super.init()
@@ -50,8 +53,10 @@ class Item: PFObject, PFSubclassing {
         Item["item_imageFile"] = item.itemImageFile
         let user = PFUser.current()
         Item["user"] = user?.username
-        Item["from_date"] = item.fromDate
-        Item["to_date"] = item.toDate
+        Item["from_month"] = item.fromMonth
+        Item["from_year"] = item.fromYear
+        Item["to_month"] = item.toMonth
+        Item["to_year"] = item.toYear
         Item.saveInBackground(block: completion)
         
     }
