@@ -12,8 +12,9 @@ import Parse
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
-
     @IBOutlet weak var homeChallengeCollectionView: UICollectionView!
+
+	var companies: [Company] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,8 @@ class HomeViewController: UIViewController {
 		homeChallengeCollectionView.dataSource = self
 		homeChallengeCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         // Do any additional setup after loading the view.
+		companies = Seed.getCustomers()
+		homeChallengeCollectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,7 +77,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return 10
+        return companies.count
 
     }
 
@@ -82,7 +85,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeChallengeCollectionCell", for: indexPath) as! HomeChallengeCollectionCell
 
-        cell.challengeNameLabel.text = String(indexPath.item)
+		cell.challengeImageView.image = companies[indexPath.row].logo
+        cell.challengeNameLabel.text = companies[indexPath.row].name
 
         return cell
 
