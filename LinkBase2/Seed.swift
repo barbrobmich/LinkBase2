@@ -28,19 +28,31 @@ class Seed: NSObject {
         case "choice":
             questions =
             [
-                ChoiceQuestion(question: "What is 1 + 1?", choices: ["4", "6", "2", "9"], correctAnswerIndex: 1),
-                ChoiceQuestion(question: "What is 2 + 6?", choices: ["7", "1", "8", "6"], correctAnswerIndex: 2),
-                ChoiceQuestion(question: "What is 7 + 4?", choices: ["2", "11", "3", "1"], correctAnswerIndex: 1),
-                ChoiceQuestion(question: "What is 4 + 9?", choices: ["13", "2", "35", "44"], correctAnswerIndex: 0),
+                ChoiceQuestion(question: "You have a sorted list of n integers. In big-O notation, what's the worst case efficiency of using insertSorted() to insert one more integer into the sorted list?", choices: ["O(log n)", "O(n)", "O(n log n)", "O(n^2)"], correctAnswerIndex: 1),
+                ChoiceQuestion(question: "What will value be after these statements?\nstack1.push(2)\nstack1.push(3)\nstack1.push(4)\nstack1.pop()\nvalue = stack1.peek()", choices: ["1", "2", "3", "4"], correctAnswerIndex: 2),
+                ChoiceQuestion(question: "A priority queue orders its items by:", choices: ["time of entry", "value", "size", "priority"], correctAnswerIndex: 3),
+                
+                ChoiceQuestion(question: "Of the following ADT's, which would be the best choice for the input buffer to allow the typist to correct errors by using the backspace key?", choices: ["queue", "priority queue", "stack", "tree"], correctAnswerIndex: 2),
+                
+                ChoiceQuestion(question: "Each node in a binary tree has:", choices: ["exactly one parent", "at most one parent", "exactly two children", "at most one child"], correctAnswerIndex: 1),
+                ChoiceQuestion(question: "In terms of efficiency, order the efficiency of the following binrary tree ops", choices: ["preorder > inorder > postorder traversal", "postorder > inorder > preorder", "inorder > preorder > postorder", "preorder == postorder == inorder traversal"], correctAnswerIndex: 3),
+                
+                 ChoiceQuestion(question: "Assume the function ceiling() rounds up a float to the next highest integer. Ex: ceiling(3.14) is 4, ceiling(3) is 3. The minimum height of a binary tree of n nodes is:", choices: ["n", "n/2", "(n/2)-2", "ceiling(log2(n+1))"], correctAnswerIndex: 3),
             ]
             
 
         default:
             questions = [
-                ChoiceQuestion(question: "What is 1 + 1?", choices: ["4", "6", "2", "9"], correctAnswerIndex: 1),
-                ChoiceQuestion(question: "What is 2 + 6?", choices: ["7", "1", "8", "6"], correctAnswerIndex: 2),
-                ChoiceQuestion(question: "What is 7 + 4?", choices: ["2", "11", "3", "1"], correctAnswerIndex: 1),
-                ChoiceQuestion(question: "What is 4 + 9?", choices: ["13", "2", "35", "44"], correctAnswerIndex: 0),
+                ChoiceQuestion(question: "You have a sorted list of n integers. In big-O notation, what's the worst case efficiency of using insertSorted() to insert one more integer into the sorted list?", choices: ["O(log n)", "O(n)", "O(n log n)", "O(n^2)"], correctAnswerIndex: 1),
+                ChoiceQuestion(question: "What will value be after these statements?\nstack1.push(2)\nstack1.push(3)\nstack1.push(4)\nstack1.pop()\nvalue = stack1.peek()", choices: ["1", "2", "3", "4"], correctAnswerIndex: 2),
+                ChoiceQuestion(question: "A priority queue orders its items by:", choices: ["time of entry", "value", "size", "priority"], correctAnswerIndex: 3),
+                
+                ChoiceQuestion(question: "Of the following ADT's, which would be the best choice for the input buffer to allow the typist to correct errors by using the backspace key?", choices: ["queue", "priority queue", "stack", "tree"], correctAnswerIndex: 2),
+                
+                ChoiceQuestion(question: "Each node in a binary tree has:", choices: ["exactly one parent", "at most one parent", "exactly two children", "at most one child"], correctAnswerIndex: 1),
+                ChoiceQuestion(question: "In terms of efficiency, order the efficiency of the following binrary tree ops", choices: ["preorder > inorder > postorder traversal", "postorder > inorder > preorder", "inorder > preorder > postorder", "preorder == postorder == inorder traversal"], correctAnswerIndex: 3),
+                
+                ChoiceQuestion(question: "Assume the function ceiling() rounds up a float to the next highest integer. Ex: ceiling(3.14) is 4, ceiling(3) is 3. The minimum height of a binary tree of n nodes is:", choices: ["n", "n/2", "(n/2)-2", "ceiling(log2(n+1))"], correctAnswerIndex: 3),
                 VerbalQuestion(question: "How are you?", limit: 30),
                 VerbalQuestion(question: "What are your interests?", limit: 30),
                 VerbalQuestion(question: "What are your weaknesses?", limit: 30),
