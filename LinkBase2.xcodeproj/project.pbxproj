@@ -25,8 +25,6 @@
 		485B5DE51E9B16E10004F768 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DE41E9B16E00004F768 /* Protocols.swift */; };
 		485B5DEA1E9B1A1B0004F768 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DE91E9B1A1B0004F768 /* HudView.swift */; };
 		485B5DEC1E9B1A280004F768 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DEB1E9B1A280004F768 /* AddItemViewController.swift */; };
-		485B5DEE1E9B1A370004F768 /* ChooseLang.xib in Resources */ = {isa = PBXBuildFile; fileRef = 485B5DED1E9B1A370004F768 /* ChooseLang.xib */; };
-		485B5DF01E9B1CF60004F768 /* ChooseLangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DEF1E9B1CF60004F768 /* ChooseLangViewController.swift */; };
 		485B5DF21E9B1D0C0004F768 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DF11E9B1D0C0004F768 /* ItemCell.swift */; };
 		485B5DF41E9B1D120004F768 /* ItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DF31E9B1D120004F768 /* ItemCollectionCell.swift */; };
 		485B5DF61E9B1D210004F768 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B5DF51E9B1D210004F768 /* LoginViewController.swift */; };
@@ -48,6 +46,8 @@
 		E5380E521E99975A0004F577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5380E501E99975A0004F577 /* LaunchScreen.storyboard */; };
 		E5380E5D1E99975A0004F577 /* LinkBase2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5380E5C1E99975A0004F577 /* LinkBase2Tests.swift */; };
 		E5380E681E99975A0004F577 /* LinkBase2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5380E671E99975A0004F577 /* LinkBase2UITests.swift */; };
+		E5D0BA2A1EA85BDD005ADA8F /* LangSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0BA291EA85BDD005ADA8F /* LangSelectionViewController.swift */; };
+		E5D0BA2C1EA9625C005ADA8F /* SelectLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0BA2B1EA9625C005ADA8F /* SelectLanguageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,8 +86,6 @@
 		485B5DE41E9B16E00004F768 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		485B5DE91E9B1A1B0004F768 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		485B5DEB1E9B1A280004F768 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
-		485B5DED1E9B1A370004F768 /* ChooseLang.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseLang.xib; sourceTree = "<group>"; };
-		485B5DEF1E9B1CF60004F768 /* ChooseLangViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseLangViewController.swift; sourceTree = "<group>"; };
 		485B5DF11E9B1D0C0004F768 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		485B5DF31E9B1D120004F768 /* ItemCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCollectionCell.swift; sourceTree = "<group>"; };
 		485B5DF51E9B1D210004F768 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +114,8 @@
 		E5380E631E99975A0004F577 /* LinkBase2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkBase2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5380E671E99975A0004F577 /* LinkBase2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkBase2UITests.swift; sourceTree = "<group>"; };
 		E5380E691E99975A0004F577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5D0BA291EA85BDD005ADA8F /* LangSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LangSelectionViewController.swift; sourceTree = "<group>"; };
+		E5D0BA2B1EA9625C005ADA8F /* SelectLanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLanguageCell.swift; sourceTree = "<group>"; };
 		FB898D4DCD1DA22CDF0E7509 /* Pods-LinkBase2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkBase2.release.xcconfig"; path = "Pods/Target Support Files/Pods-LinkBase2/Pods-LinkBase2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,11 +223,11 @@
 		485B5DE61E9B17AD0004F768 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				485B5DED1E9B1A370004F768 /* ChooseLang.xib */,
 				4838F7A51E9F044700F82F39 /* MonthYearPickerView.swift */,
 				485B5DF31E9B1D120004F768 /* ItemCollectionCell.swift */,
 				485B5DF11E9B1D0C0004F768 /* ItemCell.swift */,
 				485B5DE91E9B1A1B0004F768 /* HudView.swift */,
+				E5D0BA2B1EA9625C005ADA8F /* SelectLanguageCell.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 				485B5DEB1E9B1A280004F768 /* AddItemViewController.swift */,
 				485B5DF71E9B1D270004F768 /* NewItemViewController.swift */,
 				4838F7A31E9F040F00F82F39 /* HomeViewController.swift */,
-				485B5DEF1E9B1CF60004F768 /* ChooseLangViewController.swift */,
+				E5D0BA291EA85BDD005ADA8F /* LangSelectionViewController.swift */,
 			);
 			name = Signup;
 			sourceTree = "<group>";
@@ -451,7 +451,6 @@
 			files = (
 				485B5DD61E9B01960004F768 /* Company.storyboard in Resources */,
 				485B5DD31E9B017E0004F768 /* Profile.storyboard in Resources */,
-				485B5DEE1E9B1A370004F768 /* ChooseLang.xib in Resources */,
 				E5380E521E99975A0004F577 /* LaunchScreen.storyboard in Resources */,
 				485B5DE11E9B15FA0004F768 /* Item.storyboard in Resources */,
 				485B5DDB1E9B01F30004F768 /* Home.storyboard in Resources */,
@@ -537,7 +536,6 @@
 				A53164EF1E9C5A95007C6D3D /* ChallengeDetailViewController.swift in Sources */,
 				4838F7A81E9F058000F82F39 /* HomeChallengeCollectionCell.swift in Sources */,
 				485B5DEA1E9B1A1B0004F768 /* HudView.swift in Sources */,
-				485B5DF01E9B1CF60004F768 /* ChooseLangViewController.swift in Sources */,
 				A5262BFF1E9C348C00C6AC08 /* ChallengeListViewController.swift in Sources */,
 				4838F7A41E9F040F00F82F39 /* HomeViewController.swift in Sources */,
 				4838F7B01E9F1F1100F82F39 /* CompanyDetailViewController.swift in Sources */,
@@ -546,6 +544,8 @@
 				485B5DF41E9B1D120004F768 /* ItemCollectionCell.swift in Sources */,
 				485B5DE31E9B16C00004F768 /* Item.swift in Sources */,
 				A53164ED1E9C4FD7007C6D3D /* ChallengeTableViewCell.swift in Sources */,
+				E5D0BA2C1EA9625C005ADA8F /* SelectLanguageCell.swift in Sources */,
+				E5D0BA2A1EA85BDD005ADA8F /* LangSelectionViewController.swift in Sources */,
 				485B5DFA1E9B1D3A0004F768 /* SignUpViewController.swift in Sources */,
 				4838F7AA1E9F12FF00F82F39 /* CompanyViewController.swift in Sources */,
 				A5262C021E9C387B00C6AC08 /* Company.swift in Sources */,
