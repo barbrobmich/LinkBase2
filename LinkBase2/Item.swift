@@ -31,6 +31,7 @@ class Item: PFObject, PFSubclassing {
     @NSManaged var fromYear: Int
     @NSManaged var toMonth: Int
     @NSManaged var toYear: Int
+    @NSManaged var languages: [Int]
     
     
     init(user: PFUser, name: String?) {
@@ -57,6 +58,7 @@ class Item: PFObject, PFSubclassing {
         Item["from_year"] = item.fromYear
         Item["to_month"] = item.toMonth
         Item["to_year"] = item.toYear
+        Item["languages"] = item.languages
         Item.saveInBackground(block: completion)
         
     }
