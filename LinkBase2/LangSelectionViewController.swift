@@ -86,9 +86,8 @@ class LangSelectionViewController: UIViewController {
     
     @IBAction func onDoneTap(_ sender: UIButton) {
         print("Tapped on done")
-      //  print("selected languages: \(selectedLanguages)")
         self.selectLangDelegate?.didSelectLangauge(myLanguages: selectedLanguages)
-
+        self.removeAnimate()
     }
     
     

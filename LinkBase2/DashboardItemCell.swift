@@ -10,7 +10,17 @@ import UIKit
 
 class DashboardItemCell: UICollectionViewCell {
 
-    @IBOutlet weak var itemNameLabel: UILabel!
-    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
 
+    @IBOutlet weak var languageImageView: UIImageView! {
+        didSet{
+            languageImageView.layer.cornerRadius = 3 
+        }
+    }
+    
+    @IBOutlet weak var languageNameLabel: UILabel!
+    
+    @IBOutlet weak var itemsCountLabel: UILabel!
+
+    @IBOutlet weak var categoriesLabel: UILabel!
 }
