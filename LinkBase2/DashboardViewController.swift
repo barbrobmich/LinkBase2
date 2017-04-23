@@ -12,7 +12,7 @@ import ParseUI
 
 
 class DashboardViewController: UIViewController {
-
+    
 
     @IBOutlet weak var backgroundImageView: UIImageView!
 
@@ -38,12 +38,16 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var challengeCollectionView: UICollectionView!
     let challengeCollectionIdentifier = "ChallengeCell"
 
+    var myLanguages: [Language] = []
+    var langIndex: [Int] = []
+    var langSet: Set<Int>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         currentUser = PFUser.current()
   
-        addBlurToImage(image: backgroundImageView, type: .extraLight)
+        addBlurToImage(image: backgroundImageView, type: .light)
         
         imageDidChange = false
         onPhotoTap = UITapGestureRecognizer(target: self, action: #selector(self.getPhoto(_:)))
@@ -64,7 +68,7 @@ class DashboardViewController: UIViewController {
         print("currentUser: \(currentUser.username!)")
 
         fetchItems()
-       
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,14 +83,14 @@ class DashboardViewController: UIViewController {
         imageDidChange = false
     }
     
-    // FETCHING ITEMS FROM PARSE
+    // FETCHING ITEMS FROM PARSE AND CREATE LANGUAGE GROUPS
 
     func fetchItems() {
         
         let query = PFQuery(className: Item.parseClassName())
         
         query.order(byDescending: "_created_at")
-        query.whereKey("user", equalTo: PFUser.current()?.username!)
+        query.whereKey("user", equalTo: PFUser.current()?.username! as Any)
         query.limit = 20
         query.findObjectsInBackground { (parseItems: [PFObject]?, error: Error?) -> Void in
             
@@ -98,13 +102,58 @@ class DashboardViewController: UIViewController {
                         self.items.insert(item, at: 0)
                     }
                 }
+                self.createLangGroup()
                 self.itemCollectionView.reloadData()
             } else {
                 print(error?.localizedDescription as Any)
             }
         }
+        
     }
     
+    func createLangGroup() {
+        
+        // create array with index of each language
+        for i in items {
+            for each in i.languages {
+                langIndex.append(each)
+            }
+        }
+        
+        // remove duplicates by creating a set
+        langSet = Set(langIndex)
+        for each in langSet! {
+            let lang = Language(index: each)
+            myLanguages.append(lang)
+        }
+        
+        print("Lang Index Count is \(langIndex.count) and set count is \(langSet!.count) and mylang count is \(myLanguages.count)")
+        
+        // append items MyLanguages array
+        for i in items {
+            for j in myLanguages{
+                if i.languages.contains(j.langInt!){
+                    j.items?.append(i)
+                }
+            }
+        }
+        
+        for k in myLanguages {
+            print("\(k.langName!) contains \(k.items!.count) items")
+            for each in k.items! {
+                print("category is: \(each.category)")
+                k.langCategories?.insert(each.category)
+            }
+            print("\(k.langName!) categories are \(k.langCategories!)")
+        }
+        
+        // Sort array by number of items
+        myLanguages = myLanguages.sorted(by: { ($0.items!.count) > ($1.items!.count) })
+        
+        
+
+      }
+
     
     func loadUserImage() {
 
@@ -139,6 +188,7 @@ class DashboardViewController: UIViewController {
         }
         return nil
     }
+    
 
     /*
     // MARK: - Navigation
@@ -231,7 +281,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.itemCollectionView {
-            return items.count
+            return myLanguages.count
         } else {
             return 5 // replace with challenges.count
         }
@@ -241,8 +291,21 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
 
         if collectionView == self.itemCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DashboardItemCell", for: indexPath) as! DashboardItemCell
-            cell.itemNameLabel.text = items[indexPath.item].name
+            cell.layer.cornerRadius = 3 
+            cell.languageNameLabel.text = myLanguages[indexPath.item].langName
+            cell.backgroundImageView.image = myLanguages[indexPath.item].langImage
+            addBlurToImage(image: cell.backgroundImageView, type: .regular)
+            cell.languageImageView.image = myLanguages[indexPath.item].langImage
+            cell.itemsCountLabel.text = ("\(myLanguages[indexPath.item].items!.count) Items")
+            
+            // modify categories string
+            let categoriesString: String = String(describing: myLanguages[indexPath.item].langCategories!)
+            var categories = categoriesString.replacingOccurrences(of: "[", with: "")
+            categories = categories.replacingOccurrences(of: "]", with: "")
+            categories = categories.replacingOccurrences(of: "\"", with: "")
+            cell.categoriesLabel.text = categories
             return cell
+            
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: challengeCollectionIdentifier, for: indexPath) as UICollectionViewCell
             return cell

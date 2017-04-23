@@ -432,7 +432,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUp-ma-YlC">
-                                                                    <rect key="frame" x="2" y="34" width="70" height="25"/>
+                                                                    <rect key="frame" x="2" y="71" width="70" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="70" id="UgX-pz-jUP"/>
                                                                         <constraint firstAttribute="height" constant="25" id="hSf-g0-Rn6"/>
@@ -446,8 +446,8 @@
                                                         <constraints>
                                                             <constraint firstItem="0Ru-6l-6A3" firstAttribute="centerX" secondItem="uUp-ma-YlC" secondAttribute="centerX" id="14I-4Z-vk7"/>
                                                             <constraint firstItem="uUp-ma-YlC" firstAttribute="centerX" secondItem="Di7-N6-a1t" secondAttribute="centerX" id="Wjk-B9-d6g"/>
-                                                            <constraint firstItem="uUp-ma-YlC" firstAttribute="centerY" secondItem="Di7-N6-a1t" secondAttribute="centerY" id="Xa6-No-N67"/>
                                                             <constraint firstItem="0Ru-6l-6A3" firstAttribute="leading" secondItem="Di7-N6-a1t" secondAttribute="leading" id="Z9t-Pd-c2X"/>
+                                                            <constraint firstItem="uUp-ma-YlC" firstAttribute="top" secondItem="Di7-N6-a1t" secondAttribute="top" constant="71" id="eFW-eu-Khf"/>
                                                             <constraint firstItem="0Ru-6l-6A3" firstAttribute="top" secondItem="Di7-N6-a1t" secondAttribute="top" id="rj3-40-2cE"/>
                                                             <constraint firstAttribute="bottomMargin" secondItem="0Ru-6l-6A3" secondAttribute="bottom" constant="10" id="yfe-NU-Hlm"/>
                                                         </constraints>
@@ -765,7 +765,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="111" height="136"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sunrise_upsidedown" translatesAutoresizingMaskIntoConstraints="NO" id="pQk-Be-3aS">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sunrise_upsidedown" translatesAutoresizingMaskIntoConstraints="NO" id="pQk-Be-3aS" customClass="PFImageView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="111" height="136"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

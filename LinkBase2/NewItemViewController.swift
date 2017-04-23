@@ -31,7 +31,6 @@ class NewItemViewController: UIViewController, SelectedLangaugesDelegate{
     var categories = [Item.category.Education, Item.category.Professional, Item.category.Community, Item.category.Other]
     var index: Int!
 
-
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var URLTextField: UITextField!
@@ -168,7 +167,7 @@ class NewItemViewController: UIViewController, SelectedLangaugesDelegate{
         item.toMonth = toDatePicker.month
         item.toYear = toDatePicker.year
         item.languages = mySelectedLanguages
-        
+        item.category = String(describing: categories[index])
         
         print("From: \(fromDatePicker.month) / \(fromDatePicker.year) to: \(item.toMonth) / \(item.toYear)")
     

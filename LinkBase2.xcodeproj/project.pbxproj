@@ -48,6 +48,7 @@
 		E5380E681E99975A0004F577 /* LinkBase2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5380E671E99975A0004F577 /* LinkBase2UITests.swift */; };
 		E5D0BA2A1EA85BDD005ADA8F /* LangSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0BA291EA85BDD005ADA8F /* LangSelectionViewController.swift */; };
 		E5D0BA2C1EA9625C005ADA8F /* SelectLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0BA2B1EA9625C005ADA8F /* SelectLanguageCell.swift */; };
+		E5D0BA2E1EAC07C6005ADA8F /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D0BA2D1EAC07C6005ADA8F /* Language.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		E5380E691E99975A0004F577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D0BA291EA85BDD005ADA8F /* LangSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LangSelectionViewController.swift; sourceTree = "<group>"; };
 		E5D0BA2B1EA9625C005ADA8F /* SelectLanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLanguageCell.swift; sourceTree = "<group>"; };
+		E5D0BA2D1EAC07C6005ADA8F /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		FB898D4DCD1DA22CDF0E7509 /* Pods-LinkBase2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkBase2.release.xcconfig"; path = "Pods/Target Support Files/Pods-LinkBase2/Pods-LinkBase2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 				485B5DE41E9B16E00004F768 /* Protocols.swift */,
 				A5262C011E9C387B00C6AC08 /* Company.swift */,
 				A53164E71E9C3B66007C6D3D /* Question.swift */,
+				E5D0BA2D1EAC07C6005ADA8F /* Language.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				A5262C021E9C387B00C6AC08 /* Company.swift in Sources */,
 				489F03431EA4A6440095A057 /* Seed.swift in Sources */,
 				A53164F31E9C7EC0007C6D3D /* FinishChallengeViewController.swift in Sources */,
+				E5D0BA2E1EAC07C6005ADA8F /* Language.swift in Sources */,
 				485B5DF81E9B1D270004F768 /* NewItemViewController.swift in Sources */,
 				485B5DE51E9B16E10004F768 /* Protocols.swift in Sources */,
 				485B5DFC1E9B1D470004F768 /* UtilityFunctions.swift in Sources */,

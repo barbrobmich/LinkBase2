@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class ItemCell: UITableViewCell {
 
@@ -16,7 +17,7 @@ class ItemCell: UITableViewCell {
 
     var cellSection: Int!
     var items: [Item] = []
-    var categories = [Item.category.Education, Item.category.Professional, Item.category.Community, Item.category.Other]
+    var categories = [Item.category.Education, Item.category.Professional, Item.category.Hackathon, Item.category.Github, Item.category.Community, Item.category.Other]
     var selectItemDelegate: DidSelectItem?
     
     override func awakeFromNib() {
@@ -33,6 +34,7 @@ class ItemCell: UITableViewCell {
         collectionView.delegate = self 
         // Configure the view for the selected state
     }
+    
     
     func fetchItems() {
 
@@ -79,6 +81,14 @@ extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
         
         if cellSection == 1 {
             cell.itemNameLabel.text = items[indexPath.item].name
+            if let file: PFFile = items[indexPath.item]["item_imageFile"] as? PFFile {
+                print("File is \(file)")
+                cell.itemImageView.file = file
+                cell.itemImageView.loadInBackground()
+            }
+            
+        cell.addItemButton.isHidden = true
+            
         }
             
         else if cellSection == 2 {

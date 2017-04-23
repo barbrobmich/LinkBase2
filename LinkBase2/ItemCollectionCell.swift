@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class ItemCollectionCell: UICollectionViewCell {
     
     
     @IBOutlet weak var addItemButton: UIButton!
     
-    @IBOutlet weak var itemImageView: UIImageView! {
+    @IBOutlet weak var itemImageView: PFImageView! {
         
         didSet{
             itemImageView.layer.cornerRadius = 3

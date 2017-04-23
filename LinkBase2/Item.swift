@@ -14,7 +14,7 @@ import Parse
 class Item: PFObject, PFSubclassing {
     
     enum category {
-        case Education, Professional, Community, Other
+        case Education, Professional, Hackathon, Github, Community, Other
     }
     
     static func parseClassName() -> String {
@@ -32,6 +32,7 @@ class Item: PFObject, PFSubclassing {
     @NSManaged var toMonth: Int
     @NSManaged var toYear: Int
     @NSManaged var languages: [Int]
+    @NSManaged var category: String
     
     
     init(user: PFUser, name: String?) {
@@ -59,6 +60,7 @@ class Item: PFObject, PFSubclassing {
         Item["to_month"] = item.toMonth
         Item["to_year"] = item.toYear
         Item["languages"] = item.languages
+        Item["category"] = item.category
         Item.saveInBackground(block: completion)
         
     }
