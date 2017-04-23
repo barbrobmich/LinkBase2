@@ -314,5 +314,18 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
+        if collectionView == self.itemCollectionView{
+            print("Did select language at \(indexPath.item)")
+            let langItemVC = self.storyboard?.instantiateViewController(withIdentifier: "LangItem") as? LanguageItemViewController
+            langItemVC!.lang = myLanguages[indexPath.item]
+            let navController = UINavigationController(rootViewController: langItemVC!)
+            self.present(navController, animated: true, completion: nil)
+            
+            
+        }
+        
+        
+        
+        
     }
 }

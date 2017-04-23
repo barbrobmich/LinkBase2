@@ -28,6 +28,11 @@ class Language {
         items = []
         langCategories = []
     }
+}
+
+struct CategoryItem {
     
+    var category: String
+    var items: [Item]
     
 }
