@@ -29,6 +29,8 @@ class CompanyDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.compName.text = self.company.name!
         self.compImg.image = self.company.logo!
+        self.compImg.contentMode = UIViewContentMode.scaleAspectFit
+        self.compImg.clipsToBounds = true
         self.pubicLabel.isHidden = !self.company.isPublic
         self.roundLabel.text = self.company.classifications.rawValue
         self.numEmpLabel.text = "\(self.company.numEmployees)"

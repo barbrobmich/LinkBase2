@@ -13,5 +13,12 @@ class HomeChallengeCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var challengeNameLabel: UILabel!
     @IBOutlet weak var challengeImageView: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        self.challengeImageView.contentMode = UIViewContentMode.scaleAspectFit
+        self.challengeImageView.clipsToBounds = true
+    }
 
 }

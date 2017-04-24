@@ -30,8 +30,8 @@ class ChallengeListViewController: UIViewController, UITableViewDelegate, UITabl
 		let cell = tableView.dequeueReusableCell(withIdentifier: "company", for: indexPath) as! ChallengeTableViewCell
 		let company  = companies[indexPath.row]
 		cell.logoImageView.image = company.logo
-		cell.logoImageView.frame.size.height = 10
-		cell.logoImageView.frame.size.width = 10
+        cell.logoImageView.contentMode = UIViewContentMode.scaleAspectFit
+        cell.logoImageView.clipsToBounds = true
 		cell.nameLabel.text = company.name
 		cell.questionCountLabel.text = "\(company.questions.count) questions"
 		

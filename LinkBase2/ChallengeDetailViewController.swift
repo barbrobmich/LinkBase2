@@ -14,18 +14,19 @@ class ChallengeDetailViewController: UIViewController {
 	
 	@IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var questionCountLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 		
 		self.title = company?.name
-		logoImageView.image = company?.logo
+		self.logoImageView.image = company?.logo
+        self.logoImageView.contentMode = UIViewContentMode.scaleAspectFit
+        self.logoImageView.clipsToBounds = true
+        
 		questionCountLabel.text = "\((company?.questions.count)!) questions"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
 	@IBAction func startChallenge(_ sender: Any) {
 		
