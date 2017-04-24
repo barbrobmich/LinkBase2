@@ -27,41 +27,41 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VVb-Mr-fuh">
-                                    <size key="itemSize" width="287" height="179"/>
+                                    <size key="itemSize" width="178" height="175"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="spatial" reuseIdentifier="companyCell" id="uNv-qi-GGg" customClass="CompanyCollectionCell" customModule="LinkBase2" customModuleProvider="target">
-                                        <rect key="frame" x="44" y="0.0" width="287" height="179"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="178" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="179"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="178" height="175"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="etC-nu-GN9">
-                                                    <rect key="frame" x="44" y="8" width="200" height="100"/>
+                                                    <rect key="frame" x="18" y="8" width="142" height="115"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="Ju3-Du-wvJ"/>
-                                                        <constraint firstAttribute="height" constant="100" id="oOW-1R-Qjb"/>
+                                                        <constraint firstAttribute="height" constant="115" id="e1g-hE-TU8"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Codepath" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30i-VK-Deh">
-                                                    <rect key="frame" x="109" y="138" width="76" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Codepath" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30i-VK-Deh">
+                                                    <rect key="frame" x="42" y="131" width="94" height="24"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="30i-VK-Deh" firstAttribute="top" secondItem="etC-nu-GN9" secondAttribute="bottom" constant="8" id="Jbk-oi-VMu"/>
-                                            <constraint firstItem="etC-nu-GN9" firstAttribute="centerX" secondItem="uNv-qi-GGg" secondAttribute="centerX" id="RlQ-rL-eav"/>
-                                            <constraint firstItem="30i-VK-Deh" firstAttribute="centerX" secondItem="uNv-qi-GGg" secondAttribute="centerX" id="cDt-zc-IQG"/>
-                                            <constraint firstItem="etC-nu-GN9" firstAttribute="top" secondItem="uNv-qi-GGg" secondAttribute="top" constant="8" id="wbE-hg-eRR"/>
+                                            <constraint firstItem="30i-VK-Deh" firstAttribute="centerX" secondItem="uNv-qi-GGg" secondAttribute="centerX" id="5J7-NI-lAL"/>
+                                            <constraint firstItem="etC-nu-GN9" firstAttribute="centerX" secondItem="uNv-qi-GGg" secondAttribute="centerX" id="GO6-DL-RJP"/>
+                                            <constraint firstItem="30i-VK-Deh" firstAttribute="top" secondItem="etC-nu-GN9" secondAttribute="bottom" constant="8" id="UNh-3y-vLK"/>
+                                            <constraint firstItem="etC-nu-GN9" firstAttribute="leading" secondItem="uNv-qi-GGg" secondAttribute="leadingMargin" constant="10" id="oV3-X1-tfr"/>
+                                            <constraint firstItem="etC-nu-GN9" firstAttribute="top" secondItem="uNv-qi-GGg" secondAttribute="topMargin" id="qNk-oT-xKV"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="compImg" destination="etC-nu-GN9" id="FlP-Xe-Mea"/>
