@@ -97,6 +97,9 @@ extension CompanyViewController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: CGFloat((collectionView.frame.size.width / 2) - 20), height: CGFloat(100))
+    }
 }
 // Searches on the company table based on input change
 extension CompanyViewController: UISearchBarDelegate{

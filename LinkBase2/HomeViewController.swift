@@ -11,6 +11,9 @@ import Parse
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var quoteOfDay: UILabel!
+    @IBOutlet weak var compOfTheDayImg: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var homeChallengeCollectionView: UICollectionView!
 
@@ -18,31 +21,41 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
 
         styleBackgroundImage()
 		homeChallengeCollectionView.dataSource = self
 		homeChallengeCollectionView.delegate = self
 		homeChallengeCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        // Do any additional setup after loading the view.
+        
+        // Seed the collectionView With Customers
 		companies = Seed.getCustomers()
 		homeChallengeCollectionView.reloadData()
+        
+        // Setup Company of the day
+        let randomCompany = companies.randomElement()
+        self.compOfTheDayImg.image = randomCompany?.logo
+        self.compOfTheDayImg.contentMode = UIViewContentMode.scaleAspectFit
+        self.compOfTheDayImg.clipsToBounds = true
+        
+        // Set up Quote of the day
+        let quoteOfTheDay = getQuote()
+        self.quoteOfDay.text = quoteOfTheDay
+        
+        // Set up Current User name
+        let name = PFUser.current()?.object(forKey: "firstname") as? String
+        self.usernameLabel.text = name
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-		
-    }
-	
-	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
-	}
-	
-	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeChallengeCollectionCell", for: indexPath as IndexPath) as! HomeChallengeCollectionCell
 
-		return cell
-	}
+	
+    func getQuote() -> String{
+        return ["One important key to success is self-confidence. An important key to self-confidence is preparation.” –Arthur Ashe",
+                "Find out what you like doing best and get someone to pay you for doing it.” –Katherine Whitehorn",
+                "You miss 100% of the shots you don’t take.”–Wayne Gretzky",
+                "Opportunities don't often come along. So, when they do, you have to grab them.” –Audrey Hepburn",
+                "“Choose a job you love, and you will never have to work a day in your life.” –Confucius"].randomElement()!
+    }
 
     func styleBackgroundImage() {
 
@@ -95,20 +108,23 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
 
     }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//		let cell = homeChallengeCollectionView.cellForItem(at: indexPath) as! HomeChallengeCollectionCell
-//		let sb = UIStoryboard(name: "Challenge", bundle: nil)
-//		let controller = sb.instantiateViewController(withIdentifier: "CompanyChallenge")
-//		self.present(controller, animated: true, completion: nil)
-		
-//		var mainView: UIStoryboard!
-//		mainView = UIStoryboard(name: "Home", bundle: nil)
-//		let viewcontroller = mainView.instantiateViewController(withIdentifier: "CompanyChallenge") as! ChallengeDetailViewController
-//		viewcontroller.company = companies[indexPath.row]
-//		self.view.window?.rootViewController = viewcontroller
-//		self.tabBarController?.selectedIndex = 1
-//		self.navigationController?.pushViewController(viewcontroller, animated: true)
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
     }
+    
+
 }
 
+extension Collection where Index == Int {
+    
+    /**
+     Picks a random element of the collection.
+     
+     - returns: A random element of the collection.
+     */
+    func randomElement() -> Iterator.Element? {
+        return isEmpty ? nil : self[Int(arc4random_uniform(UInt32(endIndex)))]
+    }
+    
+}

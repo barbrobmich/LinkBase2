@@ -21,5 +21,15 @@ class CompanyCollectionCell: UICollectionViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        self.compImg.contentMode = UIViewContentMode.scaleAspectFit
+        self.compImg.clipsToBounds = true
+        
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 8
+    }
     
 }

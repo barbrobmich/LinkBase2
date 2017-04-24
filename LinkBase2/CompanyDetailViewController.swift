@@ -29,9 +29,20 @@ class CompanyDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.compName.text = self.company.name!
         self.compImg.image = self.company.logo!
+        self.compImg.contentMode = UIViewContentMode.scaleAspectFit
+        self.compImg.clipsToBounds = true
+        self.pubicLabel.isHidden = !self.company.isPublic
+        self.roundLabel.text = self.company.classifications.rawValue
+        self.numEmpLabel.text = "\(self.company.numEmployees)"
+        self.acqLab.text = "\(self.company.numOfAcquisitions)"
+        self.foundLabel.text = self.company.founders?.joined(separator: ", ")
+        self.compUrlLab.text = self.company.compUrl?.absoluteString
+        self.compBlurb.text = self.company.compDescription!
+        
         
         // show navigation
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
 
     }
 
