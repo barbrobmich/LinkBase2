@@ -10,6 +10,13 @@ import UIKit
 
 class FinishChallengeViewController: UIViewController {
 
+    // Needed if you come in through the compnay page
+    @IBAction func goHome(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        self.present(controller, animated: false, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,10 +26,7 @@ class FinishChallengeViewController: UIViewController {
 		}
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
 
     /*

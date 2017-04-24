@@ -42,6 +42,7 @@ class CompanyDetailViewController: UIViewController {
         
         // show navigation
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
 
     }
 
