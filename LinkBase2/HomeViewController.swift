@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
 
         styleBackgroundImage()
 		homeChallengeCollectionView.dataSource = self
+		homeChallengeCollectionView.delegate = self
 		homeChallengeCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         // Do any additional setup after loading the view.
 		companies = Seed.getCustomers()
@@ -61,15 +62,18 @@ class HomeViewController: UIViewController {
     }
 
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+		let indexPath = homeChallengeCollectionView.indexPath(for: sender as! UICollectionViewCell)
+		let controller = segue.destination as! ChallengeDetailViewController
+		controller.company = companies[(indexPath?.row)!]
     }
-    */
+
 
 }
 
@@ -93,7 +97,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+//		let cell = homeChallengeCollectionView.cellForItem(at: indexPath) as! HomeChallengeCollectionCell
+//		let sb = UIStoryboard(name: "Challenge", bundle: nil)
+//		let controller = sb.instantiateViewController(withIdentifier: "CompanyChallenge")
+//		self.present(controller, animated: true, completion: nil)
+		
+//		var mainView: UIStoryboard!
+//		mainView = UIStoryboard(name: "Home", bundle: nil)
+//		let viewcontroller = mainView.instantiateViewController(withIdentifier: "CompanyChallenge") as! ChallengeDetailViewController
+//		viewcontroller.company = companies[indexPath.row]
+//		self.view.window?.rootViewController = viewcontroller
+//		self.tabBarController?.selectedIndex = 1
+//		self.navigationController?.pushViewController(viewcontroller, animated: true)
     }
 }
 
