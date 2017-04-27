@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Parse
 
 class ChallengeListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
 	var companies: [Company] = []
-	
+
 	@IBOutlet weak var tableView: UITableView!
 	
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class ChallengeListViewController: UIViewController, UITableViewDelegate, UITabl
 		tableView.dataSource = self
         
         companies = Seed.getCustomers()
+		
 		tableView.reloadData()
     }
 
@@ -37,6 +39,8 @@ class ChallengeListViewController: UIViewController, UITableViewDelegate, UITabl
 		
 		return cell
 	}
+	
+	
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return companies.count
