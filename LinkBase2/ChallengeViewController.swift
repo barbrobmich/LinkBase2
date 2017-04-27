@@ -8,9 +8,11 @@
 
 import UIKit
 import AVFoundation
+import Parse
 
 class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
+	var completedChallenges: [String] = []
 	var questionIndex: Int = -1
 	var questions: [Question] = []
 	var company: Company?
@@ -43,6 +45,10 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 		
 		recordingSession = AVAudioSession.sharedInstance()
 		
+		if let challeneges = PFUser.current()?.value(forKey: "completedChallenges") {
+			completedChallenges = challeneges as! [String]
+		}
+		
 		do {
 			try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
 			try recordingSession.setActive(true)
@@ -67,7 +73,7 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 	
 	func answerQuestion(index: Int?) {
 		if questionIndex == (questions.count - 1) {
-			performSegue(withIdentifier: "finishChallenge", sender: nil)
+			finishChallenge()
 			return
 		}
 		
@@ -135,6 +141,19 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 			self.questionNumberLabel.alpha = 1
 			self.questionTextLabel.alpha = 1
 		})
+	}
+	
+	func finishChallenge() {
+		performSegue(withIdentifier: "finishChallenge", sender: nil)
+		completedChallenges.append((company?.name)!)
+		PFUser.current()?.setValue(completedChallenges, forKey: "completedChallenges")
+		let post = PFObject(className: "User")
+		post["current"] = PFUser.current()
+		do {
+			try post.save()
+		} catch {
+			print("couldn't save current user")
+		}
 	}
 	
 	func finishRecording(success: Bool) {

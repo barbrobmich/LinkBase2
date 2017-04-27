@@ -18,7 +18,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var homeChallengeCollectionView: UICollectionView!
 
 	var companies: [Company] = []
-
+	var filteredCompanies: [Company] = []
+	var completedChallenges: [String] = []
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,6 +32,7 @@ class HomeViewController: UIViewController {
         
         // Seed the collectionView With Customers
 		companies = Seed.getCustomers()
+
 		homeChallengeCollectionView.reloadData()
         
         // Setup Company of the day
@@ -45,9 +48,35 @@ class HomeViewController: UIViewController {
         // Set up Current User name
         let name = PFUser.current()?.object(forKey: "firstname") as? String
         self.usernameLabel.text = name
+
     }
-
-
+	
+	override func viewWillAppear(_ animated: Bool) {
+		filterChallenges()
+	}
+	
+	func filterChallenges() {
+		print("filtering companies")
+		let query = PFQuery(className: "User")
+		query.includeKey("current")
+		
+		query.findObjectsInBackground { (res: [PFObject]?, error) in
+			let user = res?[0]
+			PFUser.setValue(user?.value(forKey: "completedChallenges"), forKey: "completedChallenges")
+		}
+		
+		if let challenges = PFUser.current()?.value(forKey: "completedChallenges") {
+			print("challeneges: \(challenges)")
+			completedChallenges = challenges as! [String]
+			filteredCompanies = companies.filter({ (company) -> Bool in
+				return !completedChallenges.contains(company.name!)
+			})
+		} else {
+			self.filteredCompanies = companies
+		}
+		print("reloading data")
+		homeChallengeCollectionView.reloadData()
+	}
 	
     func getQuote() -> String{
         return ["One important key to success is self-confidence. An important key to self-confidence is preparation.” –Arthur Ashe",
@@ -84,7 +113,7 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
 		let indexPath = homeChallengeCollectionView.indexPath(for: sender as! UICollectionViewCell)
 		let controller = segue.destination as! ChallengeDetailViewController
-		controller.company = companies[(indexPath?.row)!]
+		controller.company = filteredCompanies[(indexPath?.row)!]
     }
 
 
@@ -94,7 +123,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return companies.count
+        return filteredCompanies.count
 
     }
 
@@ -102,8 +131,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeChallengeCollectionCell", for: indexPath) as! HomeChallengeCollectionCell
 
-		cell.challengeImageView.image = companies[indexPath.row].logo
-        cell.challengeNameLabel.text = companies[indexPath.row].name
+		cell.challengeImageView.image = filteredCompanies[indexPath.row].logo
+        cell.challengeNameLabel.text = filteredCompanies[indexPath.row].name
 
         return cell
 
