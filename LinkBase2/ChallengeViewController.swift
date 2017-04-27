@@ -147,6 +147,13 @@ class ChallengeViewController: UIViewController, AVAudioRecorderDelegate, AVAudi
 		performSegue(withIdentifier: "finishChallenge", sender: nil)
 		completedChallenges.append((company?.name)!)
 		PFUser.current()?.setValue(completedChallenges, forKey: "completedChallenges")
+		let post = PFObject(className: "User")
+		post["current"] = PFUser.current()
+		do {
+			try post.save()
+		} catch {
+			print("couldn't save current user")
+		}
 	}
 	
 	func finishRecording(success: Bool) {

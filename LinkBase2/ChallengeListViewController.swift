@@ -37,6 +37,8 @@ class ChallengeListViewController: UIViewController, UITableViewDelegate, UITabl
 		cell.nameLabel.text = company.name
 		cell.questionCountLabel.text = "\(company.questions.count) questions"
 		
+		
+		
 		return cell
 	}
 	

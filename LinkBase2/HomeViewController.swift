@@ -57,6 +57,14 @@ class HomeViewController: UIViewController {
 	
 	func filterChallenges() {
 		print("filtering companies")
+		let query = PFQuery(className: "User")
+		query.includeKey("current")
+		
+		query.findObjectsInBackground { (res: [PFObject]?, error) in
+			let user = res?[0]
+			PFUser.setValue(user?.value(forKey: "completedChallenges"), forKey: "completedChallenges")
+		}
+		
 		if let challenges = PFUser.current()?.value(forKey: "completedChallenges") {
 			print("challeneges: \(challenges)")
 			completedChallenges = challenges as! [String]
