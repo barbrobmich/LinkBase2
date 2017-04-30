@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 import ParseUI
+import MBProgressHUD
+
 
 class NewItemViewController: UIViewController, SelectedLangaugesDelegate{
 
@@ -173,12 +175,15 @@ class NewItemViewController: UIViewController, SelectedLangaugesDelegate{
     
         
         item.itemImageFile = Item.getPFFileFromImage(image: itemImageView.image)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         Item.postItemToParse(item: item){ (success: Bool, error: Error?) -> Void in
             if success {
                 print("Successful Post to Parse")
+                MBProgressHUD.hide(for: self.view, animated: true)
                 self.showAlert()
             }
             else {
+                MBProgressHUD.hide(for: self.view, animated: true)
                 print("Can't post to parse")
             }
         }

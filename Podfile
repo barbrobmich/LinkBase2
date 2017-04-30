@@ -9,5 +9,6 @@ target 'LinkBase2' do
 
   pod ‘Parse’
   pod 'ParseUI'
+  pod 'MBProgressHUD'
 
 end
