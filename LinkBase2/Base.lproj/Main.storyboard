@@ -61,7 +61,7 @@
         <scene sceneID="UG1-yN-l1n">
             <objects>
                 <viewControllerPlaceholder storyboardName="Challenge" id="i4R-sd-vEt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="e9b-XF-bai"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="challenge" id="e9b-XF-bai"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xaC-QA-55J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,7 +71,7 @@
         <scene sceneID="55f-DH-2Hx">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="gVT-Ca-LnZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="oX8-Pd-law"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="home-1" id="oX8-Pd-law"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KzM-CD-i1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,7 +81,7 @@
         <scene sceneID="EoY-QI-3HG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gfH-4w-eGz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Company" id="YyI-v7-ite"/>
+                    <tabBarItem key="tabBarItem" title="Company" image="company" id="YyI-v7-ite"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rru-pU-lft">
@@ -98,4 +98,9 @@
             <point key="canvasLocation" x="-10.4" y="412.44377811094455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="challenge" width="25" height="25"/>
+        <image name="company" width="25" height="25"/>
+        <image name="home-1" width="25" height="25"/>
+    </resources>
 </document>

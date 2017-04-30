@@ -22,9 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OqP-QH-biM">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OqP-QH-biM">
                                 <rect key="frame" x="0.0" y="116" width="375" height="502"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VVb-Mr-fuh">
                                     <size key="itemSize" width="175" height="175"/>
@@ -86,12 +85,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OqP-QH-biM" secondAttribute="trailing" id="8hu-F0-LIx"/>
                             <constraint firstItem="afO-ec-UwO" firstAttribute="leading" secondItem="f2T-wx-QYS" secondAttribute="leading" id="Jdz-ri-alW"/>
+                            <constraint firstItem="OqP-QH-biM" firstAttribute="leading" secondItem="f2T-wx-QYS" secondAttribute="leading" id="Qz3-ws-UyJ"/>
                             <constraint firstItem="afO-ec-UwO" firstAttribute="top" secondItem="f2T-wx-QYS" secondAttribute="top" id="VkZ-9H-cpx"/>
+                            <constraint firstItem="MTJ-Um-qlz" firstAttribute="top" secondItem="OqP-QH-biM" secondAttribute="bottom" id="ku0-il-cv1"/>
+                            <constraint firstItem="OqP-QH-biM" firstAttribute="top" secondItem="afO-ec-UwO" secondAttribute="bottom" constant="6" id="s3g-uS-8yi"/>
                             <constraint firstAttribute="trailing" secondItem="afO-ec-UwO" secondAttribute="trailing" id="si5-zg-Btz"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Company" id="l8i-Gr-I03"/>
+                    <tabBarItem key="tabBarItem" title="Company" image="company" id="l8i-Gr-I03"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="CompanyCollection" destination="OqP-QH-biM" id="nsa-oo-aRF"/>
@@ -306,4 +309,7 @@
             <point key="canvasLocation" x="733.60000000000002" y="465.51724137931041"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="company" width="25" height="25"/>
+    </resources>
 </document>
