@@ -40,6 +40,7 @@
 		A53164F11E9C6F31007C6D3D /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53164F01E9C6F31007C6D3D /* ChallengeViewController.swift */; };
 		A53164F31E9C7EC0007C6D3D /* FinishChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53164F21E9C7EC0007C6D3D /* FinishChallengeViewController.swift */; };
 		A8C112BF85BF6BFE27D1F870 /* Pods_LinkBase2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90E0181764D884F39E78D61 /* Pods_LinkBase2.framework */; };
+		E52FBF351EB7B42E001C71BC /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52FBF341EB7B42E001C71BC /* ChallengeCell.swift */; };
 		E5380E481E99975A0004F577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5380E471E99975A0004F577 /* AppDelegate.swift */; };
 		E5380E4D1E99975A0004F577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5380E4B1E99975A0004F577 /* Main.storyboard */; };
 		E5380E4F1E99975A0004F577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5380E4E1E99975A0004F577 /* Assets.xcassets */; };
@@ -105,6 +106,7 @@
 		A53164F01E9C6F31007C6D3D /* ChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		A53164F21E9C7EC0007C6D3D /* FinishChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishChallengeViewController.swift; sourceTree = "<group>"; };
 		C90E0181764D884F39E78D61 /* Pods_LinkBase2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LinkBase2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E52FBF341EB7B42E001C71BC /* ChallengeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
 		E5380E441E99975A0004F577 /* LinkBase2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkBase2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5380E471E99975A0004F577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5380E4C1E99975A0004F577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				4838F7A71E9F058000F82F39 /* HomeChallengeCollectionCell.swift */,
 				4838F79D1E9F026F00F82F39 /* DashboardItemCell.swift */,
 				E5D0BA331EAC41A0005ADA8F /* LanguageItemCell.swift */,
+				E52FBF341EB7B42E001C71BC /* ChallengeCell.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				E5D0BA2A1EA85BDD005ADA8F /* LangSelectionViewController.swift in Sources */,
 				485B5DFA1E9B1D3A0004F768 /* SignUpViewController.swift in Sources */,
 				4838F7AA1E9F12FF00F82F39 /* CompanyViewController.swift in Sources */,
+				E52FBF351EB7B42E001C71BC /* ChallengeCell.swift in Sources */,
 				E5D0BA311EAC3F1C005ADA8F /* LanguageItemViewController.swift in Sources */,
 				A5262C021E9C387B00C6AC08 /* Company.swift in Sources */,
 				489F03431EA4A6440095A057 /* Seed.swift in Sources */,

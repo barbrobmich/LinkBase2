@@ -42,6 +42,7 @@ class LanguageItemViewController: UIViewController {
         
         self.backgroundImage.image = lang.langImage
         addBlurToImage(image: backgroundImage, type: .extraLight)
+        self.backgroundImage.layer.cornerRadius = 3
         
         tableView.dataSource = self
         tableView.delegate = self

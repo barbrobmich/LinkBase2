@@ -102,18 +102,6 @@ extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        
-//        if cellSection == 1 {
-//            
-//            let selectedIndex = items[indexPath.item].name!
-//            print("Selected Index: \(selectedIndex)")
-//            
-//        } else if cellSection == 2 {
-//            let selectedIndex = categories[indexPath.item]
-//            print("Selected Index: \(selectedIndex)")
-//        }
-//    }
 }
 
 extension ItemCell {
