@@ -10,6 +10,9 @@ import UIKit
 
 class CompanyViewController: UIViewController {
     
+    
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     @IBOutlet weak var companyCollection: UICollectionView!
     @IBOutlet weak var searchController: UISearchBar!
     var scope: String = "All"
@@ -20,6 +23,10 @@ class CompanyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // style background  [TEST]
+        addBlurToImage(image: backgroundImage, type: .light)
+        
+        
         // Do any additional setup after loading the view.
         companyCollection.delegate = self
         companyCollection.dataSource = self

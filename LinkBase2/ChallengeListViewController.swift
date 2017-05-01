@@ -11,14 +11,21 @@ import Parse
 
 class ChallengeListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var backgroundImage: UIImageView!
 
 	var companies: [Company] = []
 
 	@IBOutlet weak var tableView: UITableView!
 	
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-		tableView.delegate = self
+		
+        // test for background image
+        addBlurToImage(image: backgroundImage, type: .light)
+        
+        
+        tableView.delegate = self
 		tableView.dataSource = self
         
         companies = Seed.getCustomers()
