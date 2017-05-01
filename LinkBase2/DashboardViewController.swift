@@ -37,10 +37,12 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var numChallengesCompleted: UILabel!
     @IBOutlet weak var challengeCollectionView: UICollectionView!
     let challengeCollectionIdentifier = "ChallengeCell"
+    var completedChallenges: [String] = []
 
     var myLanguages: [Language] = []
     var langIndex: [Int] = []
     var langSet: Set<Int>?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +68,15 @@ class DashboardViewController: UIViewController {
         emailTextField.text = currentUser.email
         print("First name: \(firstNameTextField.text!)")
         print("currentUser: \(currentUser.username!)")
-
+        
+        if let challenges = PFUser.current()?.value(forKey: "completedChallenges") {
+            completedChallenges = challenges as! [String]
+           
+        }
+        
         fetchItems()
 
+         numChallengesCompleted.text = String(describing: completedChallenges.count)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,8 +116,8 @@ class DashboardViewController: UIViewController {
                 print(error?.localizedDescription as Any)
             }
         }
-        
     }
+    
     
     func createLangGroup() {
         
@@ -283,7 +291,7 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
         if collectionView == self.itemCollectionView {
             return myLanguages.count
         } else {
-            return 5 // replace with challenges.count
+            return completedChallenges.count
         }
     }
 
@@ -307,8 +315,10 @@ extension DashboardViewController: UICollectionViewDelegate, UICollectionViewDat
             return cell
             
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: challengeCollectionIdentifier, for: indexPath) as UICollectionViewCell
-            return cell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: challengeCollectionIdentifier, for: indexPath) as? ChallengeCell
+            cell?.layer.cornerRadius = 3
+            cell?.challengeTitleLabel.text = completedChallenges[indexPath.item]
+            return cell!
         }
     }
 
