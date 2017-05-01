@@ -9,6 +9,9 @@
 import UIKit
 
 class ChallengeTableViewCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var bgView: UIView!
 
 	@IBOutlet weak var logoImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
@@ -17,6 +20,7 @@ class ChallengeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        bgView.layer.cornerRadius = 3
 
     }
 
