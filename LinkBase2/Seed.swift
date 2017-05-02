@@ -19,11 +19,11 @@ class Seed: NSObject {
         case "verbal":
            questions =
             [
-                VerbalQuestion(question: "How are you?", limit: 30),
-                VerbalQuestion(question: "What are your interests?", limit: 30),
-                VerbalQuestion(question: "What are your weaknesses?", limit: 30),
-                VerbalQuestion(question: "What are you strengths?", limit: 30),
-                VerbalQuestion(question: "How do you figure out how many piano tuners are there in Chicago?", limit: 60)
+                VerbalQuestion(question: "Why do you want to work at this company?", limit: 30),
+                VerbalQuestion(question: "Tell me about one project you enjoyed. What difficulities did you face?", limit: 30),
+                VerbalQuestion(question: "What type of position are you hoping to fill?", limit: 30),
+                VerbalQuestion(question: "What type of salary are you looking for?", limit: 30),
+                VerbalQuestion(question: "Tell me about a group experience you had. Did you encounter any challenges?", limit: 60)
             ]
         case "choice":
             questions =
@@ -53,11 +53,11 @@ class Seed: NSObject {
                 ChoiceQuestion(question: "In terms of efficiency, order the efficiency of the following binrary tree ops", choices: ["preorder > inorder > postorder traversal", "postorder > inorder > preorder", "inorder > preorder > postorder", "preorder == postorder == inorder traversal"], correctAnswerIndex: 3),
                 
                 ChoiceQuestion(question: "Assume the function ceiling() rounds up a float to the next highest integer. Ex: ceiling(3.14) is 4, ceiling(3) is 3. The minimum height of a binary tree of n nodes is:", choices: ["n", "n/2", "(n/2)-2", "ceiling(log2(n+1))"], correctAnswerIndex: 3),
-                VerbalQuestion(question: "How are you?", limit: 30),
-                VerbalQuestion(question: "What are your interests?", limit: 30),
-                VerbalQuestion(question: "What are your weaknesses?", limit: 30),
-                VerbalQuestion(question: "What are you strengths?", limit: 30),
-                VerbalQuestion(question: "How do you figure out how many piano tuners are there in Chicago?", limit: 60)
+                VerbalQuestion(question: "Why do you want to work at this company?", limit: 30),
+                VerbalQuestion(question: "Tell me about one project you enjoyed. What difficulities did you face?", limit: 30),
+                VerbalQuestion(question: "What type of position are you hoping to fill?", limit: 30),
+                VerbalQuestion(question: "What type of salary are you looking for?", limit: 30),
+                VerbalQuestion(question: "Tell me about a group experience you had. Did you encounter any challenges?", limit: 60)
             ]
             
         }
